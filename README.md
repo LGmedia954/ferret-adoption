@@ -1,24 +1,12 @@
-# README
+# Ferret Adoption
+
+Ferret Adoption is a Ruby on Rails application built with the Model-View-Controller software design pattern and RESTful routing, Actionview...
+
+This app was inspired by a real need for regional ferret adoption groups to streamline their vetting and application procedures. This app provides a space where users can post information about the ferrets they are looking to give away. Sales are not permitted.
+
+To use this app, just clone, run rake db:migrate, and then run rails s.
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Copyright (c) 2021 Leslie G., <a href="">MIT License.</a>
