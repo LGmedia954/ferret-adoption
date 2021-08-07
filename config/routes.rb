@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
+  
   get 'about', to: 'static#about'
 
-  get "/owners" => 'owners#index', as => :owners
+  #get "/owners" => 'owners#index', as => :owners
 
 
-  get 'opportunities/:id', to: 'opportunities#show
-
-
+  #get 'opportunities/:id', to: 'opportunities#show'
 
 
 end
