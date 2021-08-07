@@ -1,0 +1,12 @@
+<h1>Ferrets</h1>
+
+<div>
+  <% @ferrets.each do |ferret| %>
+    <div><%= ferret.name %></div>
+    <div><%= ferret.sex %></div>
+    <div><%= ferret.age %></div>
+    <div><%= ferret.color %></div>
+    <div><%= ferret.health %></div>
+    <div><%= ferret.description %></div>
+  <% end %>
+</div>

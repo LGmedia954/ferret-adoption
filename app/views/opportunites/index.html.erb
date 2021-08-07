@@ -1,1 +1,7 @@
 <h1>Opportunities</h1>
+
+<div>
+  <% @opportunities.each do |opportunity| %>
+    <div><%= opportunity.to_s %></div>
+  <% end %>
+</div>

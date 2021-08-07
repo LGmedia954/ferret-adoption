@@ -3,12 +3,14 @@ Animal Adoption App
 Ferret
 
 - belongs_to :user
+- has_many :opportunties
 
 - are colorful and want happy homes with responsible owners
 
 Owner
 
 - has_many :ferrets
+- has_many :opportunities
 
 - wishes to connect with other ferret owners so that ferrets can be rehomed safely
 - some are looking to rehome
@@ -18,3 +20,5 @@ Opportunity
 
 - belongs_to :user
 - belongs_to :ferret
+
+- notes the circumstance that connects owners and ferrets
