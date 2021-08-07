@@ -9,4 +9,4 @@ To use this app, just clone, run rake db:migrate, and then run rails s.
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Copyright (c) 2021 Leslie G., <a href="">MIT License.</a>
+Copyright (c) 2021 Leslie G., <a href="https://github.com/LGmedia954/ferret-adoption/blob/main/LICENSE">MIT License.</a>
