@@ -3,8 +3,8 @@ class Owner < ApplicationRecord
     has_many :opportunities
     has_many :gifted_ferrets, through: opportunities
 
-    has_secure_password
-    validates_presence_of :name, :email
+    #has_secure_password
+    #validates_presence_of :name, :email
     
 
     def to_s
