@@ -1,7 +1,5 @@
 <h1>Opportunities</h1>
 
-<div>
   <% @opportunities.each do |opportunity| %>
-    <div><%= opportunity.title %></div>
+    <div><%= link_to opportunity.title, opportunity_path(opportunity) %></div>
   <% end %>
-</div>
