@@ -19,5 +19,5 @@ jett = Ferret.create(name: 'Jett', age: '4', sex: 'M', color: 'sable', health: '
 
 Opportunity.create(title: 'This is a test', circumstance: 'My little fuzzies are staying with me')
 Opportunity.create(title: 'Looking to adopt', circumstance: 'We can take 2 more')
-Opportunity.create(title: 'Looking to adopt', circumstance: 'We can take a solo ferret')
+Opportunity.create(title: 'Looking to rescue', circumstance: 'We can take a solo ferret')
 Opportunity.create(title: 'Looking to rehome', circumstance: 'Moving to Manhattan')

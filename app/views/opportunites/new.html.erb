@@ -1,1 +1,13 @@
 <h1>Add an Opportunity</h1>
+
+<%= form_tag opportunities_path do %>
+  <label>Title:</label><br>
+  <%= text_field_tag :'opportunity[title]' %><br>
+
+  <label>Briefly Describe the Circumstance:</label><br>
+  <%= text_area_tag :'opportunity[description]' %><br>
+
+
+
+  <%= submit_tag "Submit Opportunity" %>
+<% end %> 

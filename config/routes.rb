@@ -9,13 +9,13 @@ Rails.application.routes.draw do
   get 'about', to: 'static#about'
 
   #get "/ferrets" => 'ferrets#index', as => :ferrets
-  resources :ferrets, only: [:index, :show]
+  resources :ferrets, only: [:index, :new, :create, :show]
 
   #get "/owners" => 'owners#index', as => :owners
   resources :owners, only: [:index, :show]
 
   #get "/opportunities" => 'opportunities#index', as => :opportunities
-  resources :opportunities, only: [:index, :show]
+  resources :opportunities, only: [:index, :new, :create, :show]
 
 
 

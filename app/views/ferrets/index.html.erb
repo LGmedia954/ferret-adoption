@@ -2,11 +2,6 @@
 
 <div>
   <% @ferrets.each do |ferret| %>
-    <div><%= ferret.name %></div>
-    <div><%= ferret.sex %></div>
-    <div><%= ferret.age %></div>
-    <div><%= ferret.color %></div>
-    <div><%= ferret.health %></div>
-    <div><%= ferret.description %></div>
+    <div><%= link_to ferret.name, ferret_path(ferret) %></div>
   <% end %>
 </div>

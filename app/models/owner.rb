@@ -11,5 +11,12 @@ class Owner < ApplicationRecord
       "#{first_name} #{last_name}"
     end
 
+    def surrender
+      
+    end
+
+    def adopt
+      
+    end
   
 end
