@@ -3,5 +3,7 @@
 <div>
   <% @owners.each do |owner| %>
     <div><%= owner.to_s %></div>
+    <div><%= owner.quantity %> ferrets</div>
+    <div><%= owner.zipcode %></div>
   <% end %>
 </div>
