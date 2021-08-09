@@ -12,13 +12,7 @@ class FerretsController < ApplicationController
     end
   
     def create
-      @ferret = Ferret.new
-      @ferret.name = params[:name]
-      @ferret.age = params[:age]
-      @ferret.sex = params[:sex]
-      @ferret.color = params[:color]
-      @ferret.health = params[:health]
-      @ferret.description = params[:description]
+      @ferret = Ferret.new(ferret_params)
       @ferret.save
       redirect_to ferret_path(@ferret)
     end 
@@ -28,17 +22,16 @@ class FerretsController < ApplicationController
     end
 
     def update
-        @ferret = Ferret.find(params[:id])
-        @ferret.name = params[:name]
-        @ferret.age = params[:age]
-        @ferret.sex = params[:sex]
-        @ferret.color = params[:color]
-        @ferret.health = params[:health]
-        @ferret.description = params[:description]
-        redirect_to ferret_path(@ferret)
-      end 
+      @ferret = Ferret.find(params[:id])
+      @ferret.update(ferret_params)
+      redirect_to ferret_path(@ferret)
+    end
 
-    
+    private
+
+	def ferret_params
+	  params.require(:ferret).permit(:name, :age, :sex, :color, :health, :description, :home)
+	end
 
 
 end
