@@ -6,17 +6,14 @@ class Owner < ApplicationRecord
     #has_secure_password
     #validates_presence_of :name, :email
     
-
-    def to_s
-      "#{first_name} #{last_name}"
-    end
+    
 
     def surrender
       
     end
 
     def adopt
-      
+
     end
   
 end
