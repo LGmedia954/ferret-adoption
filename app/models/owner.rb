@@ -2,10 +2,11 @@ class Owner < ApplicationRecord
     has_many :ferrets
     has_many :opportunities
     has_many :ferrets, through: opportunities
-    #has_many :gifted_ferrets, through: opportunities
     
     #has_secure_password
-    #validates_presence_of :name, :email
+    validates_presence_of :first_name, :last_name, :email, :phone, :zipcode, :quantity
+    validates :email, uniqueness: true
+    validates :phone_number, length: { is: 9 }
 
 
     def to_s

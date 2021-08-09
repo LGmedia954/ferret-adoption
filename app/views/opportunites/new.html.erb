@@ -7,7 +7,8 @@
   <label>Describe the Circumstance:</label><br>
   <%= text_area_tag :circumstance %><br>
 
-
+  <label>Active case?</label><br>
+  <%= f.check_box :active, {}, "true", "false" %><br>
 
   <%= submit_tag "Submit Opportunity" %>
 <% end %> 
