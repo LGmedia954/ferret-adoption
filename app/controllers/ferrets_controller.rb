@@ -8,8 +8,15 @@ class FerretsController < ApplicationController
     end
   
     def create
-      #Ferret.create
-      #redirect_to ferrets_path
+      @ferret = Ferret.new
+      @ferret.name = params[:name]
+      @ferret.age = params[:age]
+      @ferret.sex = params[:sex]
+      @ferret.color = params[:color]
+      @ferret.health = params[:health]
+      @ferret.description = params[:description]
+      @ferret.save
+      redirect_to ferret_path(@ferret)
     end 
 
     def show

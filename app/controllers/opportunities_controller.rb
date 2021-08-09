@@ -5,12 +5,15 @@ class OpportunitiesController < ApplicationController
     end
 
     def new
-
     end
 
     def create
-      Opportunity.create(title: params[:opportunity][:title], circumstance: params[:opportunity][:circumstance])
-      redirect_to opportunities_path
+      @opportunity = Opportunity.new
+      @opportunity.title = params[:title]
+      @opportunity.circumstance = params[:circumstance]
+
+      @opportunity.save
+      redirect_to opportunity_path(@opportunity)
     end 
 
     def show
