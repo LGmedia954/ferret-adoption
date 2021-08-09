@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get '/opportunities/:id', to: 'opportunities#show', as: 'opportunity'
 
+  get '/opportunities/:id/activate', to: 'students#case_status', as: 'case_status'
+
 
 
   resources :ferrets, only: [:index, :new, :create, :edit, :update]

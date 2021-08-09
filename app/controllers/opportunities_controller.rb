@@ -28,7 +28,14 @@ class OpportunitiesController < ApplicationController
       @opportunity.circumstance = params[:circumstance]
   
       redirect_to opportunity_path(@opportunity)
-    end 
+    end
+
+    def case_status
+      @opportunity = Opportunity.find(params[:id])
+      @opportunity.active = !@opportunity.active 
+      @opportunity.save
+      redirect_to opportunity_path(@opportunity)
+    end
 
     private
 

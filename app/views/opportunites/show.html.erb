@@ -1,3 +1,9 @@
-<h1><%= @opportunity.title %></h1>
+<h2><%= @opportunity.title %></h2>
 <p><%= @opportunity.circumstance %></p>
-<p><%= @opportunity.updated_at %></p>
+<em><%= @opportunity.updated_at %></em>
+<br><br>
+<% if @opportunity.active %>
+  This case is still active.
+<% else %>
+  This opportunity is now closed.
+<% end %>
