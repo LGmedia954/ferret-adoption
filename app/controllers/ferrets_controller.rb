@@ -27,6 +27,13 @@ class FerretsController < ApplicationController
       redirect_to ferret_path(@ferret)
     end
 
+    def destroy
+      @ferret = Ferret.find(params[:id])
+      @ferret.destroy
+      flash[:notice] = "Ferret deleted."
+      redirect_to ferrets_path
+    end
+
     private
 
 	def ferret_params

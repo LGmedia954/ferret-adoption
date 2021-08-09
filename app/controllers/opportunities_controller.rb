@@ -37,6 +37,13 @@ class OpportunitiesController < ApplicationController
       redirect_to opportunity_path(@opportunity)
     end
 
+    def destroy
+      @opportunity = Opportunity.find(params[:id])
+      @opportunity.destroy
+      flash[:notice] = "Opportunity deleted."
+      redirect_to opportunities_path
+    end
+
     private
 
     def opportunity_params(*args)
