@@ -4,6 +4,10 @@ class OpportunitiesController < ApplicationController
       @opportunities = Opportunity.all
     end
 
+    def show
+      @opportunity = Opportunity.find(params[:id])
+    end
+
     def new
     end
 
@@ -16,9 +20,19 @@ class OpportunitiesController < ApplicationController
       redirect_to opportunity_path(@opportunity)
     end 
 
-    def show
+    def edit
       @opportunity = Opportunity.find(params[:id])
     end
+
+    def update
+      @opportunity = Opportunity.find(params[:id])
+      @opportunity.title = params[:title]
+      @opportunity.circumstance = params[:circumstance]
+  
+      redirect_to opportunity_path(@opportunity)
+    end 
+
+    
 
 
 end
