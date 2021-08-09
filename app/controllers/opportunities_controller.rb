@@ -12,9 +12,7 @@ class OpportunitiesController < ApplicationController
     end
 
     def create
-      @opportunity = Opportunity.new
-      @opportunity.title = params[:title]
-      @opportunity.circumstance = params[:circumstance]
+      @opportunity = Opportunity.new(opportunity_params(:title, :circumstance))
 
       @opportunity.save
       redirect_to opportunity_path(@opportunity)
@@ -32,7 +30,12 @@ class OpportunitiesController < ApplicationController
       redirect_to opportunity_path(@opportunity)
     end 
 
-    
+    private
 
+    def opportunity_params(*args)
+		params.require(:opportunity).permit(*args)
+	end
+
+    
 
 end

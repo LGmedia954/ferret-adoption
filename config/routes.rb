@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   resources :owners, only: [:index, :show]
 
   resources :opportunities, only: [:index, :new, :create, :edit, :update]
+
+  patch '/opportunities/:id', to: 'opportunities#update'
   
 
 
