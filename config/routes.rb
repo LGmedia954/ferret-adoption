@@ -17,14 +17,12 @@ Rails.application.routes.draw do
 
   resources :ferrets, only: [:index, :new, :create, :edit, :update]
   
-  resources :owners, only: [:index, :show]
+  resources :owners, only: [:index, :new, :create, :edit, :update]
 
   resources :opportunities, only: [:index, :new, :create, :edit, :update]
 
   patch '/opportunities/:id', to: 'opportunities#update'
   
-
-
 
 
 end
