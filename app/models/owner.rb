@@ -9,6 +9,11 @@ class Owner < ApplicationRecord
     validates :phone_number, length: { is: 9 }
     validates_inclusion_of :quantity, :in => 1..12
 
+    
+    def connection  #Rails kept asking for this before every view.
+      retrieve_connection 
+    end
+
     def to_s
       self.first_name + " " + self.last_name
     end

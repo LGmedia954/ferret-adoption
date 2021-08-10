@@ -2,6 +2,7 @@
 
 <div>
   <% @owners.each do |owner| %>
-    <div><%= link_to owner.to_s, owner_path(owner) %></div>
+    <%= link_to owner.to_s, owner_path(owner) %>
+    <%= owner.ferrets.count %><br>
   <% end %>
 </div>

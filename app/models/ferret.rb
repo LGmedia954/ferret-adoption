@@ -6,3 +6,8 @@ class Ferret < ApplicationRecord
     validates_presence_of :name, :age, :sex, :color, :health, :description
     
 end
+
+
+def connection  #Rails kept asking for this before every view.
+  retrieve_connection 
+end

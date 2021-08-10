@@ -6,3 +6,9 @@ class Opportunity < ApplicationRecord
     validates :circumstance, length: { maximum: 500 }
 
 end
+
+
+
+def connection  #Rails kept asking for this before every view.
+  retrieve_connection 
+end
