@@ -9,7 +9,7 @@
   <%= f.text_field :last_name %><br>
   <br>
   <label>Email:</label><br>
-  <%= f.text_field :email %><br>
+  <%= f.email_field :email %><br>
   <br>
   <label>Phone (9 digits):</label><br>
   <%= f.text_field :phone %><br>
@@ -21,7 +21,7 @@
   <%= f.text_field :quantity %><br>
   <br>
   <label>Password:</label><br>
-  <%= f.text_field :password_digest %><br>
+  <%= f.password_field :password_digest %><br>
   <br>
   <%= f.submit %>
 <% end %>

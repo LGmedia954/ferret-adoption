@@ -1,12 +1,19 @@
-<%= form_tag opportunities_path do %>
-  <label>Title:</label><br>
-  <%= text_field_tag :title %><br>
+<h2>Edit an Opportunity</h2>
 
-  <label>Describe the Circumstance:</label><br>
-  <%= text_area_tag :circumstance %><br>
+<%= form_for(@opportunity) do |f| %>
 
-  <label>Active case?</label><br>
-  <%= f.check_box :active, {}, "true", "false" %><br>
+  <b><label>Title:</label></b><br>
+  <%= f.text_field :title %><br>
+  <br>
+  <b><label>Describe the Circumstance:</label></b><br>
+  <%= f.text_field :circumstance %><br>
+  <br>
+  <b><label>Active case?</label></b>&nbsp;&nbsp;<%= f.check_box :active, {}, "true", "false" %><br>
+  <em>All cases are marked as active until you deactivate them.</em>
+  <br><br>
+  <%= f.submit %>
+<% end %>
 
-  <%= submit_tag "Submit Opportunity" %>
-<% end %> 
+<br>
+<br>
+<b>Sales of any kind are not permitted.</b>

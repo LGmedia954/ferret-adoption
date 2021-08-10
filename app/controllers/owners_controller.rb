@@ -1,5 +1,5 @@
 class OwnersController < ApplicationController
-    skip_before_action :verified_user, only: [:new, :create]
+    #skip_before_action :verified_user, only: [:new, :create]
     
     def index
       @owners = Owner.all
@@ -23,5 +23,16 @@ class OwnersController < ApplicationController
       @owner = Owner.find(params[:id])
     end
 
+    def update
+      @owner = Owner.find(params[:id])
+      @owner.update(owner_params)
+      redirect_to owner_path(@owner)
+    end
+
+    private
+
+    def owner_params
+      params.permit(:first_name, :last_name, :email, :phone, :zipcode, :password_digest, :quantity)
+    end
 
 end
