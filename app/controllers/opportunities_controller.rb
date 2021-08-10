@@ -54,3 +54,6 @@ class OpportunitiesController < ApplicationController
     
 
 end
+
+
+#I had a typo in the one of the views folders, and now my remote github is rejecting.
