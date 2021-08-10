@@ -1,17 +1,18 @@
 <h2>Add an Opportunity</h2>
 
-<%= form_tag opportunities_path do %>
+<%= form_for(@opportunity) do |f| %>
+
   <label>Title:</label><br>
-  <%= text_field_tag :title %><br>
-
+  <%= f.text_field :title %><br>
+  <br>
   <label>Describe the Circumstance:</label><br>
-  <%= text_area_tag :circumstance %><br>
-
+  <%= f.text_field :circumstance %><br>
+  <br>
   <label>Active case?</label><br>
   <%= f.check_box :active, {}, "true", "false" %><br>
-
-  <%= submit_tag "Submit Opportunity" %>
-<% end %> 
+  <br>
+  <%= f.submit %>
+<% end %>
 
 <br>
 <br>

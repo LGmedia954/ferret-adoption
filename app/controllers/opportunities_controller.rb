@@ -9,6 +9,7 @@ class OpportunitiesController < ApplicationController
     end
 
     def new
+      @opportunity = Opportunity.new
     end
 
     def create

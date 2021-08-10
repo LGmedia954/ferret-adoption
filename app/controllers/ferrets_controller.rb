@@ -9,6 +9,7 @@ class FerretsController < ApplicationController
     end
 
     def new
+      @ferret = Ferret.new
     end
   
     def create
