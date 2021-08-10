@@ -16,6 +16,12 @@
 
 .field_with_errors {
   padding: 2px;
-  background-color: firebrick;
+  background-color: red;
   display: table;
+}
+
+body {
+  height: 100vmax;
+  background-color: linen; /* For browsers that do not support gradients */
+  background-image: linear-gradient(linen, sienna);
 }
