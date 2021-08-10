@@ -32,7 +32,7 @@ class OwnersController < ApplicationController
     private
 
     def owner_params
-      params.permit(:first_name, :last_name, :email, :phone, :zipcode, :password_digest, :quantity)
+      params.require(:owner).permit(:first_name, :last_name, :email, :phone, :zipcode, :password_digest, :quantity)
     end
 
 end

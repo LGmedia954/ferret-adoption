@@ -1,8 +1,9 @@
-<h2>Owners</h2>
+<h1>Owners</h1>
 
 <div>
   <% @owners.each do |owner| %>
-    <%= link_to owner.to_s, owner_path(owner) %>
-    <%= owner.ferrets.count %><br>
+    <h3>
+      <%= link_to owner.first_name, owner_path(owner) %>  - <%= owner.quantity %> ferrets
+    </h3>
   <% end %>
 </div>

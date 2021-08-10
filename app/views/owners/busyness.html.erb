@@ -1,4 +1,4 @@
-<h2><%= @owner.to_s %> has a Busyness of <%= @owner.quantity %> Ferrets</h2>
+<h1><%= @owner.first_name %> has a Busyness of <%= @owner.quantity %> Ferrets</h1>
 
 <div>
   <% @owner.ferrets.each do |ferret| %>
