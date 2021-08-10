@@ -25,3 +25,9 @@ body {
   background-color: linen; /* For browsers that do not support gradients */
   background-image: linear-gradient(linen, sienna);
 }
+
+h1,
+h2,
+h6 {
+  font-family: "Brush Script MT", cursive;
+}
