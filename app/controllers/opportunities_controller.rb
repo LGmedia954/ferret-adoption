@@ -13,7 +13,8 @@ class OpportunitiesController < ApplicationController
     end
 
     def create
-      @opportunity = Opportunity.new(opportunity_params(:title, :circumstance))
+      @opportunity = Opportunity.new(opportunity_params)
+      #@opportunity = current_user.opportunities.build(opportunity_params)
 
       @opportunity.save
       redirect_to opportunity_path(@opportunity)
@@ -25,8 +26,7 @@ class OpportunitiesController < ApplicationController
 
     def update
       @opportunity = Opportunity.find(params[:id])
-      @opportunity.title = params[:title]
-      @opportunity.circumstance = params[:circumstance]
+      @opportunity = Opportunity.update(opportunity_params)
   
       redirect_to opportunity_path(@opportunity)
     end
@@ -47,8 +47,8 @@ class OpportunitiesController < ApplicationController
 
     private
 
-    def opportunity_params(*args)
-		params.require(:opportunity).permit(*args)
+    def opportunity_params
+		params.require(:opportunity).permit(:title, :circumstance, :active, :owner_id, ferret_ids: [])
 	end
 
     

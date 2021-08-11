@@ -2,6 +2,7 @@ class Owner < ApplicationRecord
     has_many :ferrets
     has_many :opportunities
     has_many :ferrets, through: opportunities
+    accepts_nested_attributes_for :ferret
     
     #has_secure_password
     validates_presence_of :first_name, :last_name, :email, :phone, :zipcode, :quantity

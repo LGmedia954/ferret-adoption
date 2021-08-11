@@ -15,8 +15,11 @@ class OwnersController < ApplicationController
 
     def create
       @owner = Owner.new(owner_params)
-      @owner.save
-      redirect_to owner_path(@owner)
+      if @owner.save
+        redirect_to owner_path(@owner)
+      else
+        render :new
+      end 
     end
     
     def edit
@@ -32,7 +35,7 @@ class OwnersController < ApplicationController
     private
 
     def owner_params
-      params.require(:owner).permit(:first_name, :last_name, :email, :phone, :zipcode, :password_digest, :quantity)
+      params.require(:owner).permit(:first_name, :last_name, :email, :phone, :zipcode, :password, :quantity)
     end
 
 end

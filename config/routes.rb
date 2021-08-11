@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'static#home'
 
-  get '/owners/new', to: 'owners#new', as: 'new_owner'
+  get '/owners/new', to: 'owners#new', as: 'signup'
 
   get 'about', to: 'static#about'
 
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   get '/owners/:id/edit', to: 'owners#edit', as: 'edit_owner'
 
-  #get '/owners/:id/busyness', to: 'owners#my_busyness', as: 'my_busyness'
+  #get '/owners/:id/busyness', to: 'owners#busyness', as: 'busyness'
 
 
 

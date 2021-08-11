@@ -34,3 +34,23 @@ h5,
 h6 {
   font-family: "Brush Script MT", cursive;
 }
+
+/* unvisited link */
+a:link {
+  color: black;
+}
+
+/* visited link */
+a:visited {
+  color: black;
+}
+
+/* mouse over link */
+a:hover {
+  color: maroon;
+}
+
+/* selected link */
+a:active {
+  color: crimson;
+}

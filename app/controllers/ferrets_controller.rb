@@ -14,6 +14,8 @@ class FerretsController < ApplicationController
   
     def create
       @ferret = Ferret.new(ferret_params)
+      #@ferret = current_user.ferrets.build(ferret_params)
+      
       @ferret.save
       redirect_to ferret_path(@ferret)
     end 
