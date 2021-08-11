@@ -16,8 +16,11 @@ class FerretsController < ApplicationController
       @ferret = Ferret.new(ferret_params)
       #@ferret = current_user.ferrets.build(ferret_params)
       
-      @ferret.save
-      redirect_to ferret_path(@ferret)
+      if @ferret.save
+        redirect_to ferret_path(@ferret)
+      else
+        render :new
+      end
     end 
 
     def edit

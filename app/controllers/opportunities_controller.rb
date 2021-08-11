@@ -16,8 +16,11 @@ class OpportunitiesController < ApplicationController
       @opportunity = Opportunity.new(opportunity_params)
       #@opportunity = current_user.opportunities.build(opportunity_params)
 
-      @opportunity.save
-      redirect_to opportunity_path(@opportunity)
+      if @opportunity.save
+        redirect_to opportunity_path(@opportunity)
+      else
+        render :new
+      end
     end 
 
     def edit

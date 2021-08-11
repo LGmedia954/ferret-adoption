@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   get '/owners/:id/edit', to: 'owners#edit', as: 'edit_owner'
 
-  #get '/owners/:id/busyness', to: 'owners#busyness', as: 'busyness'
+  get '/owners/:id/busyness', to: 'owners#busyness', as: 'busyness'
 
 
 
