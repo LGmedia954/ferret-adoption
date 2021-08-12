@@ -2,9 +2,9 @@ class Owner < ApplicationRecord
     has_many :ferrets
     has_many :opportunities
     has_many :ferrets, through: opportunities
-    accepts_nested_attributes_for :ferret
+    #accepts_nested_attributes_for :ferret
     
-    #has_secure_password
+    has_secure_password
     validates_presence_of :first_name, :last_name, :email, :phone, :zipcode, :quantity
     validates :email, uniqueness: true
     validates :phone_number, length: { is: 9 }
@@ -16,8 +16,6 @@ class Owner < ApplicationRecord
       email =~ VALID_EMAIL_REGEX
     end
 
-
-
     def connection  #Rails kept asking for this before every view.
       retrieve_connection 
     end
@@ -27,12 +25,5 @@ class Owner < ApplicationRecord
       self.first_name + " " + self.last_name
     end
 
-    def surrender
-      
-    end
-
-    def adopt
-
-    end
   
 end

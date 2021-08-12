@@ -5,6 +5,14 @@ Rails.application.routes.draw do
 
   get '/owners/new', to: 'owners#new', as: 'signup'
 
+  get '/sessions/new', to: 'sessions#new', as: 'login'
+
+  #post '/login', to:'sessions#create'
+
+  #post '/logout' to: 'sessions#destroy'
+
+
+
   get 'about', to: 'static#about'
 
   get '/owners', to:'owners#index', as: 'owners'
