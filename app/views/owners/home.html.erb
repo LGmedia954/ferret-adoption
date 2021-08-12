@@ -1,1 +1,8 @@
 <h1>Hi, <%= current_user.first_name %>.</h1>
+
+<p>You are successfully logged in.</p>
+<br>
+
+<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+  <input type=submit value='logout'>
+<% end %>

@@ -1,5 +1,4 @@
 class OwnersController < ApplicationController
-    #skip_before_action :verified_user, only: [:new, :create]
     
     def index
       @owners = Owner.all
@@ -10,14 +9,15 @@ class OwnersController < ApplicationController
     end
 
     def new
+      @owner = Owner.new
     end
 
     def create
-      @owner = Owner.create(owner_params)
-      return redirect_to controller: 'owners', action: 'new' unless @owner.save
-      session[:owner_id] = @owner.id
-      redirect_to controller: 'welcome', action: 'home'
-    end
+        @owner = Owner.create(owner_params)
+        return redirect_to controller: 'owners', action: 'new' unless @owner.save
+        session[:owner_id] = @owner.id
+        redirect_to controller: 'welcome', action: 'home'
+      end
     
     def edit
       @owner = Owner.find(params[:id])
