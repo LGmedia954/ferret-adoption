@@ -1,19 +1,4 @@
 <h1>Add an Opportunity</h1>
 
-<%= form_for(@opportunity) do |f| %>
+<%= render 'form' %>
 
-  <b><label>Title:</label></b><br>
-  <%= f.text_field :title %><br>
-  <br>
-  <b><label>Describe the Circumstance:</label></b><br>
-  <%= f.text_field :circumstance %><br>
-  <br>
-  <b><label>Active case?</label></b>&nbsp;&nbsp;<%= f.check_box :active, {}, "true", "false" %><br>
-  <em>All cases are marked as active until you deactivate them.</em>
-  <br><br>
-  <%= f.submit %>
-<% end %>
-
-<br>
-<br>
-<b>Sales of any kind are not permitted.</b>

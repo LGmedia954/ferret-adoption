@@ -5,21 +5,28 @@
 <h5>Example: Gizmo is a Black Mitt ferret, and Coconut is a Chocolate Blaze ferret.</h5>
 <br>
 
+<%= render 'errors' %>
+
 <%= form_for(@ferret) do |f| %>
 
-  <label>Ferret name:</label><br>
-  <%= f.text_field :name %><br>
-  <label>Sex:</label><br>
-  <%= f.text_field :sex %><br>
-  <label>Color:</label><br>
+  <b><label>Ferret name:</label></b>
+  <%= f.text_field :name, required: true %><br>
+
+  <b><label>Sex:</label></b>
+  <%= f.label :sex_male, 'Male' %>
+  <%= f.radio_button :sex, 'male', :checked => true %>
+  <%= f.label :sex_female, 'Female' %>
+  <%= f.radio_button :sex, 'female' %><br />
+  
+  <b><label>Color:</label></b>
   <%= f.text_field :color %><br>
-  <label>Age:</label><br>
-  <%= f.number_field :age %><br>
-  <label>Health:</label><br>
-  <%= f.text_field :health %><br>
-  <label>Description:</label><br>
-  <%= f.text_area :description %><br>
-  <label>Found a Home?</label>&nbsp;&nbsp;<%= f.check_box :home, {}, "true", "false" %><br>
+  <b><label>Age:</label></b>
+  <%= f.number_field :age, in: 1..10 %><br>
+  <b><label>Health:</label></b><br>
+  <%= f.text_field :health, required: true %><br>
+  <b><label>Description:</label></b><br>
+  <%= f.text_area :description, required: true %><br>
+  <b><label>Found a Home?</label></b>&nbsp;&nbsp;<%= f.check_box :home, {}, "true", "false" %><br>
   <br>
   <%= f.submit %>
 <% end %>
