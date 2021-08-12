@@ -7,11 +7,13 @@ Rails.application.routes.draw do
 
   get '/sessions/new', to: 'sessions#new', as: 'login'
 
-  #post '/login', to:'sessions#create'
+  post '/sessions/new' => 'sessions#create'
 
-  #post '/logout' to: 'sessions#destroy'
+  post '/logout', to: 'sessions#destroy'
 
 
+
+  get '/welcome/home', to: 'welcome#home'
 
   get 'about', to: 'static#about'
 

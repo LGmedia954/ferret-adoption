@@ -9,6 +9,6 @@ end
 
 
 
-def connection  #Rails kept asking for this before every view.
+def self.connection  #Rails kept asking for this before every view.
   retrieve_connection 
 end

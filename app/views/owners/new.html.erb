@@ -1,6 +1,6 @@
 <h1>Sign Up</h1>
 
-<%= form_for(@owner) do |f| %>
+<%= form_for @owner, controller: 'owners', action: 'create' do |f| %>
 
   <label>First Name:</label><br>
   <%= f.text_field :first_name %><br>
@@ -23,5 +23,5 @@
   <label>Password:</label><br>
   <%= f.password_field :password_digest %><br>
   <br>
-  <%= f.submit %>
+  <%= f.submit "create" %>
 <% end %>
