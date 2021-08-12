@@ -1,34 +1,9 @@
-<h1>Edit a Ferret</h1>
-<p>Please define your ferret by one of the following 8 colors:</p>
-<p><b>Albino, Black, Black Sable, Champagne, Chocolate, Cinnamon, Dark-Eyed White, and Sable.</b></p>
-<p>You may also describe a pattern:</p>
-<p><b>Blaze, Mitt, Mutt, Panda, Point, Roan, Solid, Standard, and Striped/Patterned.</b></p>
-<p><em>Example: Gizmo is a Black Mitt ferret, and Coconut is a Chocolate Blaze ferret.</em></p>
-<br>
+<h1>Edit Ferret Details</h1>
 
-<%= form_for(@ferret) do |f| %>
-
-  <label>Ferret name:</label><br>
-  <%= f.text_field :name %><br>
-  <br>
-  <label>Sex:</label><br>
-  <%= f.text_field :sex %><br>
-  <br>
-  <label>Color:</label><br>
-  <%= f.text_field :color %><br>
-  <br>
-  <label>Age:</label><br>
-  <%= f.text_field :age %><br>
-  <br>
-  <label>Health:</label><br>
-  <%= f.text_field :health %><br>
-  <br>
-  <label>Description:</label><br>
-  <%= f.text_area :description %><br>
-  <br>
-  <label>Found a Home?</label>&nbsp;&nbsp;<%= f.check_box :home, {}, "true", "false" %><br>
-  <br>
-  <%= f.submit %>
-<% end %>
+<%= render 'form' %>
 
 <br><br>
+
+<%= form_tag ({controller: 'ferrets', action: 'destroy', method: 'post'}) do %>
+  <input type=submit value='delete'>
+<% end %>

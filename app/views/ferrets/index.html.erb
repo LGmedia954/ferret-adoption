@@ -2,7 +2,7 @@
 
 <div>
   <% @ferrets.each do |ferret| %>
-    <%= link_to ferret.name, ferret_path(ferret) %>
-    <%= ferret.owner.to_s %><br>
+    <%= link_to ferret.name, ferret_path(ferret) %><br>
+    Needs a home: <%= ferret.home %><br>
   <% end %>
 </div>

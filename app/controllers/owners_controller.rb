@@ -26,8 +26,11 @@ class OwnersController < ApplicationController
     def update
       @owner = Owner.find(params[:id])
       @owner.update(owner_params)
+      flash[:notice] = "Updated owner information."
       redirect_to owner_path(@owner)
     end
+
+    #need a delete Owner method here
 
     private
 

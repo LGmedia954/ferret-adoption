@@ -1,0 +1,25 @@
+<p>Please define your ferret by one of the following 8 colors:<br>
+<b>Albino, Black, Black Sable, Champagne, Chocolate, Cinnamon, Dark-Eyed White, and Sable.</b></p>
+<p>You may also describe a pattern:<br>
+<b>Blaze, Mitt, Mutt, Panda, Point, Roan, Solid, Standard, and Striped/Patterned.</b></p>
+<h5>Example: Gizmo is a Black Mitt ferret, and Coconut is a Chocolate Blaze ferret.</h5>
+<br>
+
+<%= form_for(@ferret) do |f| %>
+
+  <label>Ferret name:</label><br>
+  <%= f.text_field :name %><br>
+  <label>Sex:</label><br>
+  <%= f.text_field :sex %><br>
+  <label>Color:</label><br>
+  <%= f.text_field :color %><br>
+  <label>Age:</label><br>
+  <%= f.number_field :age %><br>
+  <label>Health:</label><br>
+  <%= f.text_field :health %><br>
+  <label>Description:</label><br>
+  <%= f.text_area :description %><br>
+  <label>Found a Home?</label>&nbsp;&nbsp;<%= f.check_box :home, {}, "true", "false" %><br>
+  <br>
+  <%= f.submit %>
+<% end %>

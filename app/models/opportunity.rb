@@ -5,10 +5,14 @@ class Opportunity < ApplicationRecord
     validates :title, presence: true
     validates :circumstance, length: { maximum: 500 }
 
-end
+
+  def self.connection  #Rails kept asking for this before every view.
+    retrieve_connection 
+  end
+
+  def organizer
+    Owner.find(self.owner_id).last_name
+  end
 
 
-
-def self.connection  #Rails kept asking for this before every view.
-  retrieve_connection 
 end

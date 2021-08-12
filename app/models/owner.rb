@@ -8,7 +8,6 @@ class Owner < ApplicationRecord
     validates_presence_of :first_name, :last_name, :email, :phone, :zipcode, :quantity
     validates :email, uniqueness: true
     validates :phone_number, length: { is: 9 }
-    validates_inclusion_of :quantity, :in => 1..12
 
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
     
