@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   get '/sessions/new', to: 'sessions#new', as: 'login'
 
-  post '/sessions/new' => 'sessions#create'
+  #get '/login' => 'sessions#new'
+
+  post '/login', to: 'sessions#create'
 
   post '/logout', to: 'sessions#destroy'
 
@@ -55,7 +57,7 @@ Rails.application.routes.draw do
   
   patch '/opportunities/:id', to: 'opportunities#update'
 
-  #get '/opportunities/:id/activate', to: 'opportunities#case_status', as: 'case_status'
+  #get '/opportunities/:id/case_status', to: 'opportunities#case_status', as: 'case_status'
 
 
 

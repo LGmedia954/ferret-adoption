@@ -1,24 +1,24 @@
 <%= render 'errors' %>
-<%= render 'message' %>
 
 <br>
 
 <%= form_for @owner, controller: 'owners', action: 'create' do |f| %>
 
-  <label>First Name:</label> <%= f.text_field :first_name %><br>
+  <b><label>First Name:</label></b> <%= f.text_field :first_name %><br>
   <br>
-  <label>Last Name:</label> <%= f.text_field :last_name %><br>
+  <b><label>Last Name:</label></b> <%= f.text_field :last_name %><br>
   <br>
-  <label>Email:</label> <%= f.email_field :email %><br>
+  <b><label>Email:</label></b> <%= f.email_field :email %><br>
   <br>
-  <label>Phone (9 digits):</label> <%= f.text_field :phone %><br>
+  <b><label>Phone (9 digits):</label></b> <%= f.text_field :phone %><br>
   <br>
-  <label>Zip Code:</label> <%= f.text_field :zipcode %><br>
+  <b><label>Zip Code:</label></b> <%= f.text_field :zipcode %><br>
   <br>
-  <label>How many ferrets do you own?</label> <%= f.number_field :quantity, in: 1..15 %><br>
+  <b><label>How many ferrets do you own?</label></b> <%= f.number_field :quantity, in: 1..15 %><br>
   <br>
-  <label>Password:</label> <%= f.password_field :password %><br>
-  <label>Password Confirmation:</label> <%= f.password_field :password_confirmation %><br>
+  <b><label>Password:</label></b> <%= f.password_field :password %><br>
   <br>
-  <%= f.submit "create" %>
+  <b><label>Password Confirmation:</label></b> <%= f.password_field :password_confirmation %><br>
+  <br>
+  <%= f.submit "Submit" %>
 <% end %>

@@ -30,7 +30,7 @@ class OpportunitiesController < ApplicationController
     def update
       @opportunity = Opportunity.find(params[:id])
       @opportunity = Opportunity.update(opportunity_params)
-  
+      flash[:message] = "Opportunity updated."
       redirect_to opportunity_path(@opportunity)
     end
 
@@ -44,7 +44,7 @@ class OpportunitiesController < ApplicationController
     def destroy
       @opportunity = Opportunity.find(params[:id])
       @opportunity.destroy
-      flash[:notice] = "Opportunity deleted."
+      flash[:message] = "Opportunity deleted."
       redirect_to opportunities_path
     end
 

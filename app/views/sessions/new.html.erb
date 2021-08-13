@@ -1,8 +1,6 @@
 <h1>Log In</h1>
 
-<%= render 'notice' %>
-
-<%= form_for @owner, url: login_path, method: :post do |f| %>
+<%= form_for @owner, controller: 'sessions', action: 'create' do |f| %>
   <br>
   <b><%= f.label :email %></b>
   <%= f.email_field :email %>

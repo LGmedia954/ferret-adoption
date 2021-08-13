@@ -30,7 +30,13 @@ class OwnersController < ApplicationController
       redirect_to owner_path(@owner)
     end
 
-    #need a delete Owner method here
+    #Do I need an Owner delete method here?
+    def destroy
+      @owner = Opportunity.find(params[:id])
+      @owner.ferrets.destroy
+      @owner.destroy
+      redirect_to '/'
+    end
 
     private
 
