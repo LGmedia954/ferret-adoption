@@ -21,7 +21,7 @@ class FerretsController < ApplicationController
       else
         render :new
       end
-    end 
+    end
 
     def edit
       @ferret = Ferret.find(params[:id]) 

@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
 
 
-  def adoption
+  def rehomed
 
   end
 

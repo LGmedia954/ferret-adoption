@@ -4,6 +4,8 @@ class Ferret < ApplicationRecord
     has_many :owners, through: opportunities
 
     validates_presence_of :name, :age, :sex, :color, :health, :description
+
+    scope :for_adoption, -> { where(home: 'false') }
     
 
   def self.connection  #Rails kept asking for this before every view.
