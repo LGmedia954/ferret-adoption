@@ -30,10 +30,17 @@ class OwnersController < ApplicationController
       redirect_to owner_path(@owner)
     end
 
-    #Do I need an Owner delete method here?
+    def my_busyness
+      if logged_in?
+        @owner = Owner.find(params[:id])
+        @ferrets = Ferret.where(owner: current_user)
+      else
+        redirect_to ferrets_path
+      end
+    end
+
     def destroy
       @owner = Opportunity.find(params[:id])
-      @owner.ferrets.destroy
       @owner.destroy
       redirect_to '/'
     end
