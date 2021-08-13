@@ -10,11 +10,12 @@ class FerretsController < ApplicationController
 
     def new
       @ferret = Ferret.new
+      #ferret = @owner.ferrets.build
     end
   
     def create
       @ferret = Ferret.new(ferret_params)
-      
+      #@ferret = current_user.ferrets.build(ferret_params)
       if @ferret.save
         flash[:message] = "Ferret added. Dook dook!"
         redirect_to ferret_path(@ferret)
@@ -30,8 +31,12 @@ class FerretsController < ApplicationController
     def update
       @ferret = Ferret.find(params[:id])
       @ferret.update(ferret_params)
-      flash[:message] = "Details updated."
-      redirect_to ferret_path(@ferret)
+      if @ferret.save
+        flash[:message] = "Details updated."
+        redirect_to ferret_path(@ferret)
+      else
+        render :edit
+      end
     end
 
     def destroy

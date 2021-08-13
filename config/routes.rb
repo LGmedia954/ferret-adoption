@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   get 'about', to: 'static#about'
 
+
+
   get '/owners', to:'owners#index', as: 'owners'
 
   post '/owners', to:'owners#create'
@@ -27,13 +29,15 @@ Rails.application.routes.draw do
 
   get '/owners/:id/edit', to: 'owners#edit', as: 'edit_owner'
 
+  patch '/owners/:id', to: 'owners#update'
+
   get '/owners/:id/busyness', to: 'owners#busyness', as: 'busyness'
 
 
 
   get '/ferrets', to: 'ferrets#index', as: 'ferrets'
 
-  get '/ferrets/new', to: 'ferrets#new', as: 'new_ferret'
+  get 'ferrets/new', to: 'ferrets#new', as: 'new_ferret'
   
   post '/ferrets', to: 'ferrets#create'
 

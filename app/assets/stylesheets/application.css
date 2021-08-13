@@ -37,22 +37,22 @@ h6 {
 
 /* unvisited link */
 a:link {
-  color: black;
+  color: black !important;
 }
 
 /* visited link */
 a:visited {
-  color: black;
+  color: black !important;
 }
 
 /* mouse over link */
 a:hover {
-  color: maroon;
+  color: maroon !important;
 }
 
 /* selected link */
 a:active {
-  color: crimson;
+  color: crimson !important;
 }
 
 div.polaroid {

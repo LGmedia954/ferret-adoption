@@ -10,6 +10,7 @@ class OpportunitiesController < ApplicationController
 
     def new
       @opportunity = Opportunity.new
+      #opportunity = @owner.opportunties.build
     end
 
     def create

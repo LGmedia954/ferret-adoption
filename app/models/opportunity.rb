@@ -5,7 +5,8 @@ class Opportunity < ApplicationRecord
     validates :title, presence: true
     validates :circumstance, length: { maximum: 500 }
 
-    scope :open_case, -> { where(active: 'true') }
+    scope :open_case, -> { where(active: true) }
+    scope :recent, -> { order(created_at: :desc) }
 
 
   def self.connection  #Rails kept asking for this before every view.
