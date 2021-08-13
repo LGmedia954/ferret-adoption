@@ -36,7 +36,7 @@ class FerretsController < ApplicationController
     def destroy
       @ferret = Ferret.find(params[:id])
       @ferret.destroy
-      flash[:notice] = "Ferret deleted."
+      flash[:message] = "Ferret deleted."
       redirect_to ferrets_path
     end
 

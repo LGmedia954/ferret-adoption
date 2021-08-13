@@ -1,11 +1,19 @@
+<h1>Log In</h1>
+
+<%= render 'notice' %>
+
 <%= form_for @owner, url: login_path, method: :post do |f| %>
   <br>
-  <%= f.label :email %>
+  <b><%= f.label :email %></b>
   <%= f.email_field :email %>
   <br><br>
-  <%= f.label :password %>
+  <b><%= f.label :password %></b>
   <%= f.password_field :password %>
   <br><br>
   <%= f.submit "log in" %>
   
 <% end %>
+
+<br><br>
+
+# Remember to add Facebook Log In
