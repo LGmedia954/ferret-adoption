@@ -9,8 +9,7 @@ Rails.application.routes.draw do
   
   post '/sessions/create', to: 'sessions#create'
 
-  post '/sessions/destroy', to: 'sessions#destroy', as: 'logout'
-
+  delete '/sessions/destroy', to: 'sessions#destroy', as: 'logout'
 
 
   get '/welcome/home', to: 'welcome#home'
