@@ -1,4 +1,5 @@
 class FerretsController < ApplicationController
+    before_action :require_logged_in
 
     def index
       @ferrets = Ferret.all
