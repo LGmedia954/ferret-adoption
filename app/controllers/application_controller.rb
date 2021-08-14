@@ -16,9 +16,4 @@ class ApplicationController < ActionController::Base
   end
 
 
-
-  def rehomed
-
-  end
-
 end

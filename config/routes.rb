@@ -3,15 +3,13 @@ Rails.application.routes.draw do
 
   root 'static#home'
 
-  get '/owners/new', to: 'owners#new', as: 'signup'
+  get 'owners/new', to: 'owners#new', as: 'signup'
 
   get '/sessions/new', to: 'sessions#new', as: 'login'
+  
+  post '/sessions/create', to: 'sessions#create'
 
-  #get '/login' => 'sessions#new'
-
-  post '/login', to: 'sessions#create'
-
-  post '/logout', to: 'sessions#destroy'
+  post '/sessions/destroy', to: 'sessions#destroy', as: 'logout'
 
 
 
@@ -20,12 +18,15 @@ Rails.application.routes.draw do
   get 'about', to: 'static#about'
 
 
+  #resources :owners do
+    #resources :ferrets
+  #end
 
-  get '/owners', to:'owners#index', as: 'owners'
+  get '/owners', to: 'owners#index', as: 'owners'
 
-  post '/owners', to:'owners#create'
+  post '/owners', to: 'owners#create'
 
-  get '/owners/:id', to: 'owners#show', as: 'owner'
+  get '/owners/:id', to: 'owners#show'
 
   get '/owners/:id/edit', to: 'owners#edit', as: 'edit_owner'
 
@@ -41,9 +42,9 @@ Rails.application.routes.draw do
   
   post '/ferrets', to: 'ferrets#create'
 
-  get '/ferrets/:id', to: 'ferrets#show', as: 'ferret'
+  get '/ferrets/:id', to: 'ferrets#show'
 
-  get '/ferrets/:id/edit', to: 'ferrets#edit', as: 'edit_ferret'
+  get '/ferrets/:id/edit', to: 'ferrets#edit'
 
   patch '/ferrets/:id', to: 'ferrets#update'
 
@@ -55,13 +56,13 @@ Rails.application.routes.draw do
   
   post '/opportunities', to: 'opportunities#create'
   
-  get '/opportunities/:id', to: 'opportunities#show', as: 'opportunity'
+  get '/opportunities/:id', to: 'opportunities#show'
 
-  get '/opportunities/:id/edit', to: 'opportunities#edit', as: 'edit_opportunity'
+  get '/opportunities/:id/edit', to: 'opportunities#edit'
   
   patch '/opportunities/:id', to: 'opportunities#update'
 
-  #get '/opportunities/:id/case_status', to: 'opportunities#case_status', as: 'case_status'
+  get '/opportunities/:id/case_status', to: 'opportunities#case_status', as: 'case_status'
 
 
 

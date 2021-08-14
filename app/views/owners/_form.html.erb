@@ -2,7 +2,7 @@
 
 <br>
 
-<%= form_for @owner, controller: 'owners', action: 'create' do |f| %>
+<%= form_for(@owner) do |f| %>
 
   <b><label>First Name:</label></b> <%= f.text_field :first_name %><br>
   <br>
