@@ -1,14 +1,13 @@
 class SessionsController < ApplicationController
 
     def new
-      @owner = Owner.new
     end
   
     def create
       owner = Owner.find_by(email: params[:owner][:email])
   
       owner = owner.try(:authenticate, params[:owner][:password])
-  
+      
       return redirect_to(controller: 'sessions', action: 'new') unless owner
   
       session[:owner_id] = owner.id

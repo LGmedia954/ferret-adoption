@@ -5,21 +5,21 @@ Rails.application.routes.draw do
 
   get 'owners/new', to: 'owners#new', as: 'signup'
 
-  get '/sessions/new', to: 'sessions#new', as: 'login'
+  get '/sessions/new', to: 'sessions#new'
+ 
+  post '/sessions/create', to: 'sessions#create', as: 'login'
   
-  post '/sessions/create', to: 'sessions#create'
-
   delete '/sessions/destroy', to: 'sessions#destroy', as: 'logout'
 
+  
+
   resources :owners
-
-
 
   get '/welcome/home', to: 'welcome#home'
 
   get 'about', to: 'static#about'
 
-  
+
 
   resources :owners do
     resources :ferrets
@@ -27,12 +27,15 @@ Rails.application.routes.draw do
 
   get '/owners/:id/busyness', to: 'owners#busyness', as: 'busyness'
 
-
-
+  
+  
   resources :opportunities
 
   get '/opportunities/:id/case_status', to: 'opportunities#case_status', as: 'case_status'
 
 
+
+
+  
 
 end

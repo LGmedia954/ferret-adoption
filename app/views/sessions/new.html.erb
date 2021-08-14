@@ -1,15 +1,11 @@
 <h1>Log In</h1>
 
-<%= form_for @owner, controller: 'sessions', action: 'new' do |f| %>
-  <br>
-  <b><%= f.label :email %></b>
-  <%= f.email_field :email %>
-  <br><br>
-  <b><%= f.label :password %></b>
+<%= form_for @owner, url: login_path, method: :post do |f| %>
+  <%= f.label :email %>
+  <%= f.email_field :name %>
+  <%= f.label :password %>
   <%= f.password_field :password %>
-  <br><br>
-  <%= f.submit "log in" %>
-  
+  <%= f.submit "Log in" %>
 <% end %>
 
 <br><br>
