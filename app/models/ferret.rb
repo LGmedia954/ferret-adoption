@@ -6,6 +6,7 @@ class Ferret < ApplicationRecord
     validates_presence_of :name, :age, :sex, :color, :health, :description
 
     scope :for_adoption, -> { where(home: 'false') }
+    scope :found_home, -> { where(home: 'true') }
     
 
   def self.connection  #Rails kept asking for this before every view.

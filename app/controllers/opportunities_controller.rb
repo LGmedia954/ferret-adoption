@@ -11,12 +11,11 @@ class OpportunitiesController < ApplicationController
 
     def new
       @opportunity = Opportunity.new
-      #opportunity = @owner.opportunties.build
     end
 
     def create
-      @opportunity = Opportunity.new(opportunity_params)
-      #@opportunity = current_user.opportunities.build(opportunity_params)
+      #@opportunity = Opportunity.new(opportunity_params)
+      @opportunity = current_user.opportunities.build(opportunity_params)
 
       if @opportunity.save
         redirect_to opportunity_path(@opportunity)
@@ -53,7 +52,7 @@ class OpportunitiesController < ApplicationController
     private
 
     def opportunity_params
-		params.require(:opportunity).permit(:title, :circumstance, :active, :owner_id, ferret_ids: [])
+		params.require(:opportunity).permit(:title, :circumstance, :active, ferret_ids: [])
 	end
 
     
