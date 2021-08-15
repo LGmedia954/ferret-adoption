@@ -6,12 +6,12 @@ Rails.application.routes.draw do
   get 'owners/new', to: 'owners#new', as: 'signup'
 
   get '/sessions/new', to: 'sessions#new'
- 
-  post '/sessions/create', to: 'sessions#create', as: 'login'
-  
-  delete '/sessions/destroy', to: 'sessions#destroy', as: 'logout'
 
-  
+  post   'login'   => 'sessions#create'
+
+  delete 'logout'  => 'sessions#destroy'
+
+
 
   resources :owners
 

@@ -1,13 +1,13 @@
 <h1>Log In</h1>
 
-<%= form_for @owner, url: login_path, method: :post do |f| %>
+<br>
+<%= form_for(:session, url: login_path) do |f| %>
   <%= f.label :email %>
-  <%= f.email_field :name %>
+  <%= f.email_field :email %><br><br>
   <%= f.label :password %>
   <%= f.password_field :password %>
+  <br><br>
   <%= f.submit "Log in" %>
 <% end %>
-
 <br><br>
-
-# Remember to add Facebook Log In
+<p>New user? <%= link_to "Sign up here.", signup_path %></p>
