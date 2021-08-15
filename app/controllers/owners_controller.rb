@@ -14,9 +14,13 @@ class OwnersController < ApplicationController
 
     def create
       @owner = Owner.create(owner_params)
-      return redirect_to controller: 'owners', action: 'new' unless @owner.save
-      session[:owner_id] = @owner.id
-      redirect_to controller: 'welcome', action: 'home'
+        if @owner.save
+          flash[:success] = "Welcome to Ferret Adoption!"
+          session[:owner_id] = @owner.id
+          redirect_to controller: 'welcome', action: 'home'
+        else
+          render 'new'
+        end
     end
     
     def edit
