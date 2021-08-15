@@ -4,19 +4,17 @@ class SessionsController < ApplicationController
     end
   
     def create
-      owner = Owner.find_by(email: params[:session][:email].downcase)
-  
-        if owner && owner.authenticate(params[:session][:password])
+        owner = Owner.find_by(email: params[:owner][:email].downcase)
+
+        if owner && owner.authenticate(params[:owner][:password])
 
           log_in owner
-  
-          @owner = owner
 
           redirect_to controller: 'welcome', action: 'home'
 
         else
           flash.now[:danger] = 'Invalid email/password combination'
-          render 'new'
+          return redirect_to(controller: 'sessions', action: 'new')
         end
     end
   

@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   get 'owners/new', to: 'owners#new', as: 'signup'
 
   get '/sessions/new', to: 'sessions#new'
-
-  post   'login'   => 'sessions#create'
-
-  delete 'logout'  => 'sessions#destroy'
+ 
+  post '/sessions/create', to: 'sessions#create', as: 'login'
+  
+  delete '/sessions/destroy', to: 'sessions#destroy', as: 'logout'
 
 
 
