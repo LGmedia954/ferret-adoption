@@ -13,6 +13,7 @@ class OwnersController < ApplicationController
     end
 
     def create
+      byebug
       @owner = Owner.create(owner_params)
         if @owner.save
           flash[:success] = "Welcome to Ferret Adoption!"

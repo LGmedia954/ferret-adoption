@@ -21,9 +21,11 @@ Rails.application.routes.draw do
 
 
 
-  resources :owners do
-    resources :ferrets
-  end
+  resources :ferrets
+
+  #resources :owners do
+    #resources :ferrets
+  #end
 
   get '/owners/:id/busyness', to: 'owners#busyness', as: 'busyness'
 
