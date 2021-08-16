@@ -9,7 +9,7 @@ class Owner < ApplicationRecord
     end
     
     #suggested to bypass "unknown attribute 'password' for Owner" with bcrypt?
-    attr_accessible :email, :password, :password_confirmation
+    #attr_accessible :email, :password, :password_confirmation
 
     has_secure_password
     validates_presence_of :first_name, :last_name, :phone, :zipcode, :quantity
