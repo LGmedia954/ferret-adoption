@@ -1,10 +1,10 @@
 class Owner < ApplicationRecord
-    #suggested to bypass "unknown attribute 'password' for Owner" with bcrypt?
+    #bypass "unknown attribute 'password' for Owner" with bcrypt
     #attr_accessible :email, :password, :password_confirmation
     attr_accessor :password, :password_confirmation
     has_secure_password
 
-    #Found another resource and I got further along with the above code, 
+    #I got further along with the above code, 
     #but password is coming through as nil.
 
     has_many :ferrets, dependent: :destroy
@@ -15,8 +15,7 @@ class Owner < ApplicationRecord
     def self.connection  #Rails kept asking for this before every view.
       retrieve_connection 
     end
-
-    #now trying this one...
+    
     #validates :password, :confirmation => true
  
     validates_presence_of :first_name, :last_name, :phone, :zipcode, :quantity
