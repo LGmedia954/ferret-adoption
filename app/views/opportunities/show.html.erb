@@ -8,3 +8,7 @@
   This opportunity is now closed.
 <% end %>
 <br><br>
+
+<% if logged_in? %>
+  <%= render 'edit' %>
+<% end %>

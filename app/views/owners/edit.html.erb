@@ -3,3 +3,7 @@
 <%= render 'form' %>
 
 <br><br>
+
+<%= form_tag ({controller: 'owners', action: 'destroy', method: 'post'}) do %>
+  <input type=submit value='delete'>
+<% end %>

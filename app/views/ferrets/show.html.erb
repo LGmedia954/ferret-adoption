@@ -4,6 +4,8 @@
 <p><%= @ferret.color %></p>
 <p><%= @ferret.health %></p>
 <p><%= @ferret.description %></p>
-<h6>Id #<%= @ferret.id %></h6>
+<p>Id #<%= @ferret.id %></p>
 
-<%= render 'edit' %>
+<% if logged_in? %>
+  <%= render 'edit' %>
+<% end %>

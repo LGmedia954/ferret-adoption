@@ -1,6 +1,8 @@
 <h1>Hello, <%= @owner.first_name %>.</h1>
 
-<p>Thank you for signing up!</p>
+<p>Thank you for signing up! <i class='far fa-heart'></i></p>
+<br>
+<p>Please list the ferret(s) you currently own, and describe whether you would like to adopt more or rehome them.</p>
 <br>
 
 <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>

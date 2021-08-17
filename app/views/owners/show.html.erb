@@ -2,3 +2,7 @@
 <p><%= @owner.phone %></p>
 <p>Location: <%= @owner.zipcode %></p>
 <p>Ferret(s): <%= @owner.quantity %></p>
+
+<% if logged_in? %>
+  <%= render 'edit' %>
+<% end %>
