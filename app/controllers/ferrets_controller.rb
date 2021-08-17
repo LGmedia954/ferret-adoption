@@ -1,5 +1,5 @@
 class FerretsController < ApplicationController
-    before_action :require_logged_in
+    #before_action :require_logged_in
 
     def index
       @ferrets = Ferret.all
@@ -11,7 +11,6 @@ class FerretsController < ApplicationController
 
     def new
       @ferret = Ferret.new
-      #ferret = @owner.ferrets.build
     end
   
     def create
