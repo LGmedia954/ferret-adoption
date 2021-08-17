@@ -21,23 +21,23 @@ Rails.application.routes.draw do
 
 
 
-  resources :ferrets
+  resources :ferrets, only: [:index, :show]
 
-  #resources :owners do
-    #resources :ferrets
-  #end
+  resources :owners do
+    resources :ferrets, except: :index
+  end
 
-  get '/owners/:id/busyness', to: 'owners#busyness', as: 'busyness'
+  get '/owners/:owner_id/ferrets', to: 'ferrets#busyness', as: 'busyness'
 
   
-  
-  resources :opportunities
 
-  get '/opportunities/:id/case_status', to: 'opportunities#case_status', as: 'case_status'
+  resources :opportunities, only: [:index, :show]
 
+  resources :owners do
+    resources :opportunities
+  end
 
-
-
+  get '/opportunities/:owner_id/case_status', to: 'opportunities#case_status', as: 'case_status'
   
 
 end

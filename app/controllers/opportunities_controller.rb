@@ -1,5 +1,5 @@
 class OpportunitiesController < ApplicationController
-    before_action :require_logged_in
+    #before_action :require_logged_in
 
     def index
       @opportunities = Opportunity.all
@@ -14,7 +14,6 @@ class OpportunitiesController < ApplicationController
     end
 
     def create
-      #@opportunity = Opportunity.new(opportunity_params)
       @opportunity = current_user.opportunities.build(opportunity_params)
 
       if @opportunity.save
