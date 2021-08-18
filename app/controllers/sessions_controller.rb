@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
     end
   
     def create
+      #byebug
         owner = Owner.find_by(email: params[:owner][:email].downcase)
 
         if owner && owner.authenticate(params[:owner][:password])

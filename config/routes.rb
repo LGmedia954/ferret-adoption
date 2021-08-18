@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   get '/welcome/home', to: 'welcome#home'
 
-  get 'about', to: 'static#about'
+  get '/static/about', to: 'static#about'
 
 
 

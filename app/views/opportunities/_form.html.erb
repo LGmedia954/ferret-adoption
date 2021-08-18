@@ -11,6 +11,7 @@
   <b><label>Active case?</label></b>&nbsp;&nbsp;<%= f.check_box :active, {}, "true", "false" %><br>
   <em>All cases are marked as active until you deactivate them.</em>
   <br><br>
+  <%= f.hidden_field :owner_id %>
   <%= f.submit "Submit" %>
 <% end %>
 

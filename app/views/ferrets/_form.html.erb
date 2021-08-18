@@ -28,5 +28,6 @@
   <%= f.text_area :description, required: true %><br>
   <b><label>Found a Home?</label></b>&nbsp;&nbsp;<%= f.check_box :home, {}, "true", "false" %><br>
   <br>
+  <%= f.hidden_field :owner_id %>
   <%= f.submit "Submit" %>
 <% end %>
