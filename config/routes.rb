@@ -13,8 +13,6 @@ Rails.application.routes.draw do
 
 
 
-  resources :owners
-
   get '/welcome/home', to: 'welcome#home'
 
   get '/static/about', to: 'static#about'
@@ -24,7 +22,7 @@ Rails.application.routes.draw do
   resources :ferrets, only: [:index, :show]
 
   resources :owners do
-    resources :ferrets, except: :index
+    resources :ferrets
   end
 
   get '/owners/:owner_id/ferrets', to: 'ferrets#busyness', as: 'busyness'
@@ -37,7 +35,6 @@ Rails.application.routes.draw do
     resources :opportunities
   end
 
-  get '/opportunities/:owner_id/case_status', to: 'opportunities#case_status', as: 'case_status'
-  
+
 
 end
