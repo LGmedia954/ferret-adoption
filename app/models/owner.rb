@@ -1,13 +1,13 @@
 class Owner < ApplicationRecord
     #bypass "unknown attribute 'password' for Owner" with bcrypt
     has_secure_password
-    attr_accessible :email, :password, :password_confirmation
+    #attr_accessible :email, :password, :password_confirmation
 
     #I got further along with the above code
 
     has_many :ferrets, dependent: :destroy
     has_many :opportunities, dependent: :destroy
-    has_many :ferrets, through: opportunities
+    has_many :ferrets, through: :opportunities
     accepts_nested_attributes_for :ferrets
 
     def self.connection  #Rails kept asking for this before every view.
