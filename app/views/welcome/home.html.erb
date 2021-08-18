@@ -3,9 +3,5 @@
 <p>Thank you for signing up! <i class='fas fa-heart' style='color:crimson'></i></p>
 <br>
 <p>Begin here by listing any ferret(s) you currently own.</p>
-<strong><%= link_to 'Add Ferret', new_ferret_path %></strong>
-<br><br>
-
-<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
-  <input type=submit value='logout'>
-<% end %>
+<br>
+<button style='font-size:16px'><%= link_to 'Add Ferret', new_owner_ferret_path(@owner) %> <i class='fas fa-paw'></i></button>
