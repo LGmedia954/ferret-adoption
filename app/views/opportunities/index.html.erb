@@ -1,5 +1,7 @@
 <h1>Opportunities</h1>
 
+<%= link_to 'Add Opportunity', new_owner_opportunity_path %>
+
 <div>
   <% @opportunities.each do |opportunity| %>
     <div><%= link_to opportunity.title, opportunity_path(opportunity) %></div>

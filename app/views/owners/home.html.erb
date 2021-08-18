@@ -1,7 +1,18 @@
 <h1>Hi, <%= current_user.first_name %>.</h1>
 
-<p>You are successfully logged in.</p>
+<p>You are successfully logged in. <i class='fas fa-paw'></i></p>
 <br>
+/* <%= link_to 'Add Ferret', new_owner_ferret_path(@ferret) %> */
+/* <%= link_to 'Add Ferret', new_owner_ferret_path %> */
+<br>
+/* <%= link_to 'Add Ferret', new_owner_ferret_path(@ferret) %> */
+/* <%= link_to 'Add Ferret', new_owner_ferret_path %> */
+<br>
+/* <%= link_to 'Add Opportunity', new_owner_ferret_path(@ferret) %> */
+/* <%= link_to 'Add Ferret', new_owner_ferret_path %> */
+<br>
+/* <%= link_to 'Add Opportunity', new_owner_ferret_path(@ferret) %> */
+/* <%= link_to 'Add Ferret', new_owner_ferret_path %> */
 
 <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
   <input type=submit value='logout'>

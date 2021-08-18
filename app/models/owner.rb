@@ -3,7 +3,7 @@ class Owner < ApplicationRecord
     has_secure_password
     attr_accessible :email, :password, :password_confirmation
 
-    #I got further along with the above code, 
+    #I got further along with the above code
 
     has_many :ferrets, dependent: :destroy
     has_many :opportunities, dependent: :destroy
@@ -16,6 +16,7 @@ class Owner < ApplicationRecord
  
     validates_presence_of :first_name, :last_name, :phone, :zipcode, :quantity
     validates :email, uniqueness: true, presence: true
+    validates_format_of :email,:with => /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
     validates :phone_number, length: { is: 9 }
 
     before_save { self.email = email.downcase }

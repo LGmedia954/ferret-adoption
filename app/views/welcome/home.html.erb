@@ -2,9 +2,10 @@
 
 <p>Thank you for signing up! <i class='far fa-heart' style='color:crimson'></i></p>
 <br>
-<p>Begin here by listing the ferret(s) you currently own.</p>
+<p>Begin here by listing any ferret(s) you currently own.</p>
 <br><br>
-/* <%= link_to "Add Ferret", new_owner_ferret_path(@ferret) %> */
+/* <%= link_to 'Add Ferret', new_owner_ferret_path(@ferret) %> */
+/* <%= link_to 'Add Ferret', new_owner_ferret_path %> */
 
 
 <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
