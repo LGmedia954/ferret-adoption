@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   get '/static/about', to: 'static#about'
 
+  get '/static/questions', to: 'static#questions'
+
 
 
   resources :ferrets, only: [:index, :show]
