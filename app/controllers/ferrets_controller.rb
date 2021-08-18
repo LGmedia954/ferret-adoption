@@ -24,7 +24,12 @@ class FerretsController < ApplicationController
     end
 
     def edit
-      @ferret = Ferret.find(params[:id]) 
+      @ferret = Ferret.find(params[:id])
+
+      if !current_user
+        flash[:message] = "You may only edit your own ferret details."
+        redirect_to ferrets_path
+      end
     end
 
     def update
@@ -39,9 +44,14 @@ class FerretsController < ApplicationController
     end
 
     def destroy
-      @ferret = Ferret.find(params[:id])
-      @ferret.destroy
-      redirect_to ferrets_path
+      if !current_user
+        flash[:message] = "You may only delete your own ferret listings."
+        redirect_to ferrets_path
+      else
+        @ferret = Ferret.find(params[:id])
+        @ferret.destroy
+        redirect_to ferrets_path
+      end
     end
 
     private

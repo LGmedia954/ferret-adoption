@@ -25,6 +25,11 @@ class OwnersController < ApplicationController
     
     def edit
       @owner = Owner.find(params[:id])
+
+      if !current_user
+        flash[:message] = "You may only edit your own account."
+        redirect_to owners_path
+      end
     end
 
     def update
@@ -45,8 +50,13 @@ class OwnersController < ApplicationController
 
     def destroy
       @owner = Opportunity.find(params[:id])
-      @owner.destroy
-      redirect_to '/'
+      if !current_user
+        flash[:message] = "You may only delete your own account."
+        redirect_to owners_path
+      else
+        @owner.destroy
+        redirect_to '/'
+      end
     end
 
     private

@@ -25,6 +25,11 @@ class OpportunitiesController < ApplicationController
 
     def edit
       @opportunity = Opportunity.find(params[:id])
+
+      if !current_user
+        flash[:message] = "You may only edit your own opportunities."
+        redirect_to opportunities_path
+      end
     end
 
     def update
@@ -43,9 +48,14 @@ class OpportunitiesController < ApplicationController
 
     def destroy
       @opportunity = Opportunity.find(params[:id])
-      @opportunity.destroy
-      flash[:message] = "Opportunity deleted."
-      redirect_to opportunities_path
+      if !current_user
+        flash[:message] = "You may only delete your own opportunities."
+        redirect_to opportunities_path
+      else
+        @opportunity.destroy
+        flash[:message] = "Opportunity deleted."
+        redirect_to opportunities_path
+      end
     end
 
     private
