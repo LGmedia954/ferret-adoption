@@ -5,12 +5,15 @@
   <b><label>Title:</label></b>
   <%= f.text_field :title, required: true %><br>
   <br>
-  <b><label>Describe Circumstance:</label></b><br>
+  <b><label>Circumstance:</label></b><br>
   <%= f.text_area :circumstance, required: true %><br>
   <br>
-  <b><label>Active case?</label></b>&nbsp;&nbsp;<%= f.check_box :active, {}, "true", "false" %><br>
-  <em>All cases are marked as active until you deactivate them.</em>
+  <b><label>Ferret(s):</label></b>&nbsp;&nbsp;
+  <%= f.collection_select :ferret_id, Ferret.order(:name), :id, :name, include_blank: true %>
   <br><br>
+  <b><label>Active case?</label></b>&nbsp;&nbsp;&nbsp;<%= f.check_box :active, {}, "true", "false" %><br>
+  <h5>All cases are marked as active until you deactivate them.</h5>
+  <br>
   <%= f.submit "Submit" %>
 <% end %>
 

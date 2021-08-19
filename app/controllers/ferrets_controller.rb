@@ -10,11 +10,12 @@ class FerretsController < ApplicationController
     end
 
     def new
-      @ferret = current_user.ferrets.new
+      #@ferret = current_user.ferrets.new
+      @owner = Owner.find_by(id: params[:owner_id])
+      @ferret = Ferret.new(organizer_id: @user.id)
     end
   
     def create
-      @owner = Owner.find(params[:owner_id])
       @ferret = current_user.ferrets.build(ferret_params)
       if @ferret.save
         flash[:message] = "Ferret added. Dook dook!"
