@@ -10,7 +10,7 @@ class OpportunitiesController < ApplicationController
     end
 
     def new
-      @opportunity = Opportunity.new
+      @opportunity = current_user.opportunities.new
     end
 
     def create

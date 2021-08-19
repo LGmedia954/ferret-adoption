@@ -2,7 +2,7 @@
 
 <br>
 
-<button><%= link_to 'New Opportunity', new_owner_opportunity_path(@owner) %> <i class='fas fa-heart' style='color:crimson'></i></button>
+<button><%= link_to 'New Opportunity', new_owner_opportunity_path(:owner_id) %> <i class='fas fa-heart' style='color:crimson'></i></button>
 
 <div>
   <% @opportunities.each do |opportunity| %>
