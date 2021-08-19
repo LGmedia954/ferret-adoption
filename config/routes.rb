@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get '/static/questions', to: 'static#questions'
 
 
-
+  
   resources :ferrets, only: [:index, :show]
 
   resources :owners do

@@ -1,5 +1,5 @@
 class FerretsController < ApplicationController
-    #before_action :require_logged_in
+    before_action :require_logged_in
 
     def index
       @ferrets = Ferret.all
@@ -10,10 +10,11 @@ class FerretsController < ApplicationController
     end
 
     def new
-      @ferret = Ferret.new
+      @ferret = current_user.ferrets.new
     end
   
     def create
+      @owner = Owner.find(params[:owner_id])
       @ferret = current_user.ferrets.build(ferret_params)
       if @ferret.save
         flash[:message] = "Ferret added. Dook dook!"
@@ -57,7 +58,7 @@ class FerretsController < ApplicationController
     private
 
 	def ferret_params
-	  params.require(:ferret).permit(:name, :age, :sex, :color, :health, :description, :home)
+	  params.require(:ferret).permit(:name, :age, :sex, :color, :health, :description, :home, :owner_id)
 	end
 
 

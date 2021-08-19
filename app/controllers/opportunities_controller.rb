@@ -14,6 +14,7 @@ class OpportunitiesController < ApplicationController
     end
 
     def create
+      @owner = Owner.find(params[:owner_id])
       @opportunity = current_user.opportunities.build(opportunity_params)
 
       if @opportunity.save
@@ -61,7 +62,7 @@ class OpportunitiesController < ApplicationController
     private
 
     def opportunity_params
-		params.require(:opportunity).permit(:title, :circumstance, :active, ferret_ids: [])
+		params.require(:opportunity).permit(:title, :circumstance, :active, :owner_id, ferret_ids: [])
 	end
 
     

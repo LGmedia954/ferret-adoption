@@ -1,8 +1,5 @@
-<h2><%= @owner.first_name %> <%= @owner.last_name %></h2>
-<p><%= @owner.phone %></p>
-<p>Location: <%= @owner.zipcode %></p>
-<p>Ferret(s): <%= @owner.quantity %></p>
+<h1><%= @owner.first_name %> <%= @owner.last_name %></h1>
+<p><b><%= @owner.phone %></b></p>
+<p><b>Location: <%= @owner.zipcode %></b></p>
+<p><b>Ferret(s): <%= @owner.quantity %></b></p>
 
-<% if logged_in? %>
-  <%= render 'edit' %>
-<% end %>

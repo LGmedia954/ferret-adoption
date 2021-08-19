@@ -1,7 +1,8 @@
 <h1>All Ferrets</h1>
 
-<%= link_to 'Add Ferret', new_owner_ferret_path %>
+<br><br>
 
+<button><%= link_to 'Add Ferret', new_owner_ferret_path(@owner) %> <i class='fas fa-paw'></i></button>
 <div>
   <% @ferrets.each do |ferret| %>
     <%= link_to ferret.name, ferret_path(ferret) %><br>
