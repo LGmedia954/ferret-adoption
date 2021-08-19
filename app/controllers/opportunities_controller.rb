@@ -1,5 +1,5 @@
 class OpportunitiesController < ApplicationController
-    #before_action :require_logged_in
+    before_action :require_logged_in
     
     def index
       @opportunities = Opportunity.all
@@ -16,7 +16,6 @@ class OpportunitiesController < ApplicationController
     def create
       @owner = Owner.find(params[:owner_id])
       @opportunity = current_user.opportunities.build(opportunity_params)
-
       if @opportunity.save
         redirect_to opportunity_path(@opportunity)
       else

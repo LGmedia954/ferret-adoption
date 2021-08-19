@@ -9,5 +9,9 @@ class StaticController < ApplicationController
     def about
       render "about"
     end
+
+    def questions
+      render "questions"
+    end
   
   end

@@ -39,10 +39,11 @@ class OwnersController < ApplicationController
       redirect_to owner_path(@owner)
     end
 
-    def my_busyness
+    def busyness
       if logged_in?
         @owner = Owner.find(params[:id])
         @ferrets = Ferret.where(owner: current_user)
+        redirect_to busyness_path
       else
         redirect_to ferrets_path
       end
