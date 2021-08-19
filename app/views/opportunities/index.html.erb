@@ -1,6 +1,8 @@
 <h1>Opportunities</h1>
 
-<button><%= link_to 'Add Opportunity', new_owner_opportunity_path(@owner) %></button>
+<br>
+
+<button><%= link_to 'New Opportunity', new_owner_opportunity_path(@owner) %> <i class='fas fa-heart' style='color:crimson'></i></button>
 
 <div>
   <% @opportunities.each do |opportunity| %>

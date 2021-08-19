@@ -9,15 +9,15 @@ Rails.application.routes.draw do
  
   post '/sessions/create', to: 'sessions#create', as: 'login'
   
-  delete '/sessions/destroy', to: 'sessions#destroy', as: 'logout'
+  get '/sessions/destroy', to: 'sessions#destroy', as: 'logout'
 
 
 
   get '/welcome/home', to: 'welcome#home'
 
-  get '/static/about', to: 'static#about'
+  get '/about', to: 'static#about'
 
-  get '/static/questions', to: 'static#questions'
+  get '/questions', to: 'static#questions'
 
 
   
