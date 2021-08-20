@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     resources :ferrets
   end
 
-  get '/owners/:owner_id/ferrets', to: 'ferrets#busyness', as: 'busyness'
+  get '/owners/:owner_id/busyness', to: 'owners#busyness', as: 'busyness'
 
   
 

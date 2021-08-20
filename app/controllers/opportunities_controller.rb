@@ -20,7 +20,7 @@ class OpportunitiesController < ApplicationController
       if @opportunity.save
         redirect_to opportunity_path(@opportunity)
       else
-        render :new
+        render 'new'
       end
     end 
 

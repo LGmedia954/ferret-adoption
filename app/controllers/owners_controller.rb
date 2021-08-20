@@ -22,6 +22,11 @@ class OwnersController < ApplicationController
           render 'new'
         end
     end
+
+    def busyness
+      @ferrets = Ferret.where(owner: current_user)
+      render 'busyness'
+    end
     
     def edit
       @owner = Owner.find(params[:id])

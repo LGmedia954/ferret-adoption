@@ -1,7 +1,0 @@
-<h1><%= @owner.first_name %> has a Busyness of <%= @owner.quantity %> Ferrets. <i class='fas fa-paw' style='font-size:24px'></i></h1>
-
-<ul>
-  <% @owner.ferrets.each do |ferret| %>
-    <li><%= link_to ferret.name, owner_ferret_path(@owner, ferret) %></li>
-  <% end %>
-</ul>

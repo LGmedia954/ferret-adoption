@@ -21,15 +21,7 @@ class FerretsController < ApplicationController
         flash[:message] = "Ferret added. Dook dook!"
         redirect_to ferret_path(@ferret)
       else
-        render :new
-      end
-    end
-
-    def busyness
-      if current_user.ferrets.any?
-        @ferrets = Ferret.where(owner: current_user)
-      else
-        redirect_to ferrets_path
+        render 'new'
       end
     end
 
