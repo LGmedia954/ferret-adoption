@@ -1,5 +1,5 @@
 class Ferret < ApplicationRecord
-    belongs_to :owner
+    belongs_to :owner, required: true
     has_many :opportunities
     has_many :owners, through: :opportunities
 
