@@ -32,15 +32,15 @@
 
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/ferrets">All Ferrets</a></li>
-        <li><a href="/owners/busyness">My Busyness</a></li>
-        <li><a href="/opportunities">Opportunities</a></li>
-        <li><a href="/owners">Owners</a></li>
-        <li><a href="/questions">Questions</a></li>
-        <li><a href="/sessions/new">Login</a></li>
-        <li><a href="/sessions/destroy">Logout</a></li>
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'About', about_path %></li>
+        <li><%= link_to 'All Ferrets', ferrets_path %></li>
+        <li><%= link_to 'My Busyness', busyness_path %></li>
+        <li><%= link_to 'Opportunities', opportunities_path %></li>
+        <li><%= link_to 'Owners', owners_path %></li>
+        <li><%= link_to 'Questions', questions_path %></li>
+        <li><%= link_to 'Log In', sessions_new_path %></li>
+        <li><%= link_to 'Log Out', logout_path %></li>
       </ul>
 
     </div>
