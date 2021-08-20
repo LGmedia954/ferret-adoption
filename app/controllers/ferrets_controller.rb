@@ -16,7 +16,7 @@ class FerretsController < ApplicationController
   
     def create
       @owner = Owner.find(params[:owner_id])
-      @ferret = current_user.ferrets.build(ferret_params)
+      @ferret = @owner.ferrets.build(ferret_params)
       if @ferret.save
         flash[:message] = "Ferret added. Dook dook!"
         redirect_to ferret_path(@ferret)

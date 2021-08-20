@@ -1,9 +1,17 @@
-<h1><%= @owner.first_name %> has a Busyness of <%= @owner.quantity %> Ferrets.<i class='fas fa-paw' style='font-size:36px'></i></h1>
+<h1><i class='fas fa-paw' style='font-size:36px'></i> <%= @owner.first_name %> has a Busyness of <%= @owner.quantity %> Ferrets.<i class='fas fa-paw' style='font-size:36px'></i></h1>
 
 <% if @owner.ferrets.any? %>
-<ul style="list-style-type:disc;">
-  <% @owner.ferrets.each do |ferret| %>
-    <li><%= link_to ferret.name, owner_ferret_path(@owner, ferret) %></li>
-  <% end %>
-</ul>
+  <ul style="list-style-type:disc;">
+    <% @owner.ferrets.each do |ferret| %>
+      <li><%= link_to ferret.name, owner_ferret_path(@owner, ferret) %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if @owner.need_fuzzies %>
+  <%= <h3>Hmm... It seems a bit lonely here.</h3> %>
+<% end %>
+
+<% if @owner.big_busyness %>
+  <%= <h3>WOW !!! What a Bustling Busyness you have!</h3> %>
 <% end %>

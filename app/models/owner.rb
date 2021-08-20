@@ -5,7 +5,7 @@ class Owner < ApplicationRecord
 
     has_many :ferrets, dependent: :destroy
     has_many :opportunities, dependent: :destroy
-    has_many :ferrets, through: :opportunities
+    has_many :ferrets_adopted, through: :opportunities
     accepts_nested_attributes_for :ferrets
     accepts_nested_attributes_for :opportunities
 
@@ -25,5 +25,12 @@ class Owner < ApplicationRecord
       self.first_name + " " + self.last_name
     end
 
-  
+    def self.need_fuzzies
+      self.where("quantity < 2")
+    end
+
+    def self.big_busyness
+      self.where("quantity >= 4")
+    end
+
 end

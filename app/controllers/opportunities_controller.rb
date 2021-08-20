@@ -16,7 +16,7 @@ class OpportunitiesController < ApplicationController
 
     def create
       @owner = Owner.find(params[:owner_id])
-      @opportunity = current_user.opportunities.build(opportunity_params)
+      @opportunity = @owner.opportunities.build(opportunity_params)
       if @opportunity.save
         redirect_to opportunity_path(@opportunity)
       else
