@@ -10,18 +10,26 @@ class FerretsController < ApplicationController
     end
 
     def new
-      #@ferret = current_user.ferrets.new
-      @owner = Owner.find_by(id: params[:owner_id])
-      @ferret = Ferret.new(organizer_id: @user.id)
+      @owner = Owner.find(params[:owner_id])
+      @ferret = current_user.ferrets.new
     end
   
     def create
+      @owner = Owner.find(params[:owner_id])
       @ferret = current_user.ferrets.build(ferret_params)
       if @ferret.save
         flash[:message] = "Ferret added. Dook dook!"
         redirect_to ferret_path(@ferret)
       else
         render :new
+      end
+    end
+
+    def busyness
+      if current_user.ferrets.any?
+        @ferrets = Ferret.where(owner: current_user)
+      else
+        redirect_to ferrets_path
       end
     end
 

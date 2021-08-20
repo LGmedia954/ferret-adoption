@@ -39,16 +39,6 @@ class OwnersController < ApplicationController
       redirect_to owner_path(@owner)
     end
 
-    def busyness
-      if logged_in?
-        @owner = Owner.find(params[:id])
-        @ferrets = Ferret.where(owner: current_user)
-        redirect_to busyness_path
-      else
-        redirect_to ferrets_path
-      end
-    end
-
     def destroy
       @owner = Opportunity.find(params[:id])
       if !current_user
