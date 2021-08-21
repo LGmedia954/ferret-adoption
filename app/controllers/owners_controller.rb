@@ -42,8 +42,12 @@ class OwnersController < ApplicationController
     def update
       @owner = Owner.find(params[:id])
       @owner.update(owner_params)
-      flash[:message] = "Updated owner information."
-      redirect_to owner_path(@owner)
+      if @owner.save
+        flash[:message] = "Details updated."
+        redirect_to owner_path(@owner)
+      else
+        render :edit
+      end
     end
 
     def destroy

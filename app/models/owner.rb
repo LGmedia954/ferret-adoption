@@ -16,7 +16,7 @@ class Owner < ApplicationRecord
     validates_presence_of :first_name, :last_name, :phone, :zipcode, :quantity
     validates :email, uniqueness: true, presence: true
     validates_format_of :email,:with => /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
-    validates :phone, length: { is: 9 }
+    validates :phone, length: { is: 10 }
 
     before_save { self.email = email.downcase }
 
