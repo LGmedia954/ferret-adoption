@@ -1,11 +1,19 @@
 <h1><i class='fas fa-paw' style='font-size:36px'></i> <%= @owner.first_name %> has a Busyness of <%= @owner.quantity %> Ferrets.<i class='fas fa-paw' style='font-size:36px'></i></h1>
 
-<br><br>
-<br><br>
+<br>
+<% @owner.ferrets.each do |ferret| %>
+
+<h3><b>Name:</b> <%= "#{ferret.name}" %></h3> 
+<p><b>Sex:</b> <%= "#{ferret.sex}" %></p>
+<p><b>Age:</b> <%= "#{ferret.age}" %></p>
+<p><b>Color:</b> <%= "#{ferret.color}" %></p>
+<p><b>Health:</b> <%= "#{ferret.health}" %></p>
+<p><b>Description:</b> <%= "#{ferret.description}" %></p>
+<p><b>Needs a Home?</b> <%= "#{ferret.home}" %></p>
+<p><b>Id Number:</b> <%= "#{ferret.id}" %></p>
+<br>
+<% end %>
 
 <button style='font-size:16px'><%= link_to 'Add Ferret', new_owner_ferret_path(@owner) %> <i class='fas fa-paw'></i></button>
 
-
-
-
-
+<br><br>

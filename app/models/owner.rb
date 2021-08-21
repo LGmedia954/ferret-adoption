@@ -5,7 +5,7 @@ class Owner < ApplicationRecord
 
     has_many :ferrets, dependent: :destroy
     has_many :opportunities, dependent: :destroy
-    has_many :ferrets, through: :opportunities
+    has_many :ferret_adoptions, through: :opportunities
     accepts_nested_attributes_for :ferrets
     accepts_nested_attributes_for :opportunities
 
