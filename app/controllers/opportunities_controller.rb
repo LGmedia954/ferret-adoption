@@ -35,9 +35,13 @@ class OpportunitiesController < ApplicationController
 
     def update
       @opportunity = Opportunity.find(params[:id])
-      @opportunity = Opportunity.update(opportunity_params)
-      flash[:message] = "Opportunity updated."
-      redirect_to opportunity_path(@opportunity)
+      @opportunity.update(opportunity_params)
+      if @opportunity.save
+        flash[:message] = "Details updated."
+        redirect_to opportunity_path(@opportunity)
+      else
+        render :edit
+      end
     end
 
     def case_status
