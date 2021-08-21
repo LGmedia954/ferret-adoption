@@ -3,10 +3,12 @@
 <br>
 
 <button><%= link_to 'Add Ferret', new_owner_ferret_path(@owner) %> <i class='fas fa-paw'></i></button>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button><%= link_to 'My Ferrets', busyness_path(@owner) %> <i class='fas fa-paw'></i></button>
 
-<div>
+<br><br><br>
+
+
   <% @ferrets.each do |ferret| %>
-    <%= link_to ferret.name, ferret_path(ferret) %><br>
-    Needs a home: <%= ferret.home %><br>
+    <div><b><%= link_to ferret.name, ferret_path(ferret) %></b>  &bull;  Needs a home: <em><%= ferret.home %></em></div>
   <% end %>
-</div>

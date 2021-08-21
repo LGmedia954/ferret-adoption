@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   resources :ferrets, only: [:index, :show]
 
   resources :owners do
-    resources :ferrets
+    resources :ferrets, except: [:index]
   end
 
   get '/owners/:owner_id/busyness', to: 'owners#busyness', as: 'busyness'

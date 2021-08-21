@@ -8,6 +8,7 @@
 <%= render 'errors' %>
 
 <%= form_for([@owner, @ferret]) do |f| %>
+<%= f.hidden_field :owner_id, value: session[:owner_id] %>
 
   <b><label>Ferret name:</label></b>
   <%= f.text_field :name, required: true %><br>
@@ -25,7 +26,8 @@
   <%= f.text_field :health, required: true %><br>
   <b><label>Description:</label></b><br>
   <%= f.text_area :description, required: true %><br>
-  <b><label>Found a Home?</label></b>&nbsp;&nbsp;<%= f.check_box :home, {}, "true", "false" %><br>
+  <b><label>Needs a Home?</label></b>&nbsp;&nbsp;<%= f.check_box :home, {}, "true", "false" %><br>
+ <h5>Check the box above if you are looking to rehome your ferret.</h5>
 
   <br>
   <%= f.submit "Submit" %>

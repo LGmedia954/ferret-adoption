@@ -1,11 +1,17 @@
-<h2><%= @ferret.name %><i class='fas fa-paw' style='font-size:36px'></i></h2>
-<p><%= @ferret.sex %></p>
-<p><%= @ferret.age %></p>
-<p><%= @ferret.color %></p>
-<p><%= @ferret.health %></p>
-<p><%= @ferret.description %></p>
-<p>Id #<%= @ferret.id %></p>
+<h2><%= @ferret.name %> <i class='fas fa-paw' style='font-size:30px'></i></h2>
+<br>
+<p><b>Sex:</b> <%= @ferret.sex %></p>
+<p><b>Age:</b> <%= @ferret.age %></p>
+<p><b>Color:</b> <%= @ferret.color %></p>
+<p><b>Health:</b> <%= @ferret.health %></p>
+<p><b>Description:</b> <%= @ferret.description %></p>
+<p><b>Needs a Home?</b> <%= @ferret.home %></p>
+<p><b>Id Number:</b> <%= @ferret.id %></p>
 
-<% if logged_in? %>
-  <%= render 'edit' %>
-<% end %>
+<br>
+
+<button><%= link_to 'Edit Details', edit_owner_ferret_path(@owner) %> <i class='fas fa-paw'></i></button>
+
+<br><br><br>
+
+<button><%= link_to 'Add Another Ferret', new_owner_ferret_path(@owner) %> <i class='fas fa-paw'></i></button>
