@@ -27,7 +27,7 @@ class OwnersController < ApplicationController
 
     def busyness
       @owner = Owner.find(session[:owner_id])
-      @ferrets = Ferret.where(:owner_id => current_user.id).order(name: :asc)
+      @ferrets = Ferret.where(:owner_id => current_user.id)
       render 'busyness'
     end
     

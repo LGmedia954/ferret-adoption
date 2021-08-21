@@ -8,10 +8,6 @@ class Owner < ApplicationRecord
     has_many :ferret_adoptions, through: :opportunities
     accepts_nested_attributes_for :ferrets
     accepts_nested_attributes_for :opportunities
-
-    def self.connection  #Rails kept asking for this before every view.
-      retrieve_connection 
-    end
  
     validates_presence_of :first_name, :last_name, :phone, :zipcode, :quantity
     validates :email, uniqueness: true, presence: true
