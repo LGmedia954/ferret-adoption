@@ -1,6 +1,6 @@
-<h2><%= @opportunity.title %></h2>
+<h1><%= @opportunity.title %></h1>
 <p><%= @opportunity.circumstance %></p>
-<p>Shared by <%= @opportunity.owner.first_name %> on <%= @opportunity.updated_at %>.</p>
+<p><em>Shared by <%= @opportunity.owner.first_name %> on <%= @opportunity.updated_at %>.</em></p>
 <br><br>
 <% if @opportunity.active %>
   This case is still active.

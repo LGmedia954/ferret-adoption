@@ -18,11 +18,12 @@ class OpportunitiesController < ApplicationController
       @owner = Owner.find(params[:owner_id])
       @opportunity = @owner.opportunities.build(opportunity_params)
       if @opportunity.save
-        redirect_to opportunity_path(@opportunity)
+        flash[:message] = "Opportunity added. Good luck!"
+        redirect_to owner_opportunity_path(@opportunity)
       else
         render 'new'
       end
-    end 
+    end
 
     def edit
       @opportunity = Opportunity.find(params[:id])

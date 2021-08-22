@@ -8,9 +8,5 @@ class Opportunity < ApplicationRecord
     scope :open_case, -> { where(active: true) }
     scope :recent, -> { order(created_at: :desc) }
 
-    def organizer
-      Owner.find(self.owner_id).last_name
-    end
-
 
 end
