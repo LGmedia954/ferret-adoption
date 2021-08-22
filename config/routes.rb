@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   
   resources :ferrets, only: [:index, :show]
 
-  resources :opportunities, only: [:index, :show]
+  resources :opportunities
 
   resources :owners do
     resources :ferrets, except: [:index]

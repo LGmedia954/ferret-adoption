@@ -19,7 +19,7 @@ class OpportunitiesController < ApplicationController
       @opportunity = @owner.opportunities.build(opportunity_params)
       if @opportunity.save
         flash[:message] = "Opportunity added. Good luck!"
-        redirect_to owner_opportunity_path(@opportunity)
+        redirect_to opportunity_path(@opportunity)
       else
         render 'new'
       end

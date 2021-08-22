@@ -1,7 +1,8 @@
 <%= render 'errors' %>
 
-<%= form_for(@opportunity) do |f| %>
+<%= form_for @opportunity, url: owner_opportunities_path(@opportunity.owner_id), method: :post do |f| %>
 
+  <h5>Please note in title whether you are looking to adopt or rehome.</h5>
   <b><label>Title:</label></b>
   <%= f.text_field :title, required: true %><br>
   <br>
@@ -13,12 +14,8 @@
   <br><br>
   <b><label>Active case?</label></b>&nbsp;&nbsp;&nbsp;<%= f.check_box :active, {}, "true", "false" %><br>
   <h5>All cases are marked as active until you deactivate them.</h5>
-  <%= f.hidden_field :owner_id, value: session[:owner_id] %>
+  <%= f.hidden_field :owner_id, value: @opportunity.owner_id %>
   <br>
   <%= f.submit "Submit" %>
 <% end %>
-
-<br>
-<br>
-<b>Sales or rehoming fees of any kind are not permitted, because all ferrets are vetted before bringing them home.</b>
 

@@ -1,10 +1,17 @@
 <h1><%= @opportunity.title %></h1>
+<br>
 <p><%= @opportunity.circumstance %></p>
-<p><em>Shared by <%= @opportunity.owner.first_name %> on <%= @opportunity.updated_at %>.</em></p>
 <br><br>
+
 <% if @opportunity.active %>
-  This case is still active.
+  <b>This case is still active.</b>
 <% else %>
-  This opportunity is now closed.
+  <b>This opportunity is now closed.</b>
 <% end %>
 <br><br>
+<br>
+<h5>Shared by <%= @opportunity.owner.first_name %> on <%= @opportunity.updated_at.strftime("%B %d, %Y at %l:%M %P") %>.</h5>
+<br><br>
+
+
+<button><%= link_to 'Edit Details', edit_owner_opportunity_path(@owner) %> <i class='fas fa-paw'></i></button>
