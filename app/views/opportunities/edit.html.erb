@@ -1,8 +1,13 @@
 <h1>Edit Opportunity</h1>
+<br>
 
 <%= render 'form' %>
 
 <br><br>
+
+<b>Sales or rehoming fees of any kind are not permitted, because all ferrets are vetted before bringing them home.</b>
+
+<br><br><br>
 
 <%= form_tag ({controller: 'opportunities', action: 'destroy', method: 'post'}) do %>
   <input type=submit value='delete'>

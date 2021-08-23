@@ -10,12 +10,14 @@ class OpportunitiesController < ApplicationController
     end
 
     def new
-      @owner = Owner.find(params[:owner_id])
+      @owner = Owner.find(session[:owner_id])
+      @ferret = Find.find(ferret[:owner_id])
       @opportunity = current_user.opportunities.new
     end
 
     def create
-      @owner = Owner.find(params[:owner_id])
+      @owner = Owner.find(session[:owner_id])
+      @ferret = Find.find(ferret[:owner_id])
       @opportunity = @owner.opportunities.build(opportunity_params)
       if @opportunity.save
         flash[:message] = "Opportunity added. Good luck!"
@@ -43,13 +45,6 @@ class OpportunitiesController < ApplicationController
       else
         render :edit
       end
-    end
-
-    def case_status
-      @opportunity = Opportunity.find(params[:id])
-      @opportunity.active = !@opportunity.active 
-      @opportunity.save
-      redirect_to opportunity_path(@opportunity)
     end
 
     def destroy

@@ -23,14 +23,18 @@ Rails.application.routes.draw do
   
   resources :ferrets, only: [:index, :show]
 
-  resources :opportunities
+  resources :opportunities, only: [:index, :show]
 
   resources :owners do
     resources :ferrets, except: [:index]
-    resources :opportunities
   end
 
   get '/owners/:owner_id/busyness', to: 'owners#busyness', as: 'busyness'
 
+  resources :owners do
+    resources :opportunities
+  end
+
+  
 
 end
