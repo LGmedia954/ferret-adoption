@@ -9,8 +9,20 @@
   <%= f.text_area :circumstance, required: true %><br>
   <br>
   <b><label>Ferret(s):</label></b><br>
-  <%= f.collection_select(:ferret_id, Ferret.order(:name), :id, :name, {}, {:multiple => true}) %>
-  <br><br>
+
+
+  <%= f.collection_check_boxes(:ferret_id, Owner.ferret.all, :id, :name) do |b| %>
+    <div class="row">
+    <%= b.label(class: "check_box") do %>
+      <div class="col-xs-4">
+        <%= b.check_box(class: "check_box") %> <%= b.object.name %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+  
+  <br>
   <b><label>Active case?</label></b>&nbsp;&nbsp;&nbsp;<%= f.check_box :active, {}, "true", "false" %><br>
   <h5>All cases are marked as active until you deactivate them.</h5>
   <%= f.hidden_field :owner_id, value: session[:owner_id] %>
