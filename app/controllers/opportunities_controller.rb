@@ -11,13 +11,13 @@ class OpportunitiesController < ApplicationController
 
     def new
       @owner = Owner.find(session[:owner_id])
-      @ferret = Find.find(ferret[:owner_id])
+      @ferrets = Ferret.where(:owner_id => current_user.id)
       @opportunity = current_user.opportunities.new
     end
 
     def create
       @owner = Owner.find(session[:owner_id])
-      @ferret = Find.find(ferret[:owner_id])
+      @ferrets = Ferret.where(:owner_id => current_user.id)
       @opportunity = @owner.opportunities.build(opportunity_params)
       if @opportunity.save
         flash[:message] = "Opportunity added. Good luck!"

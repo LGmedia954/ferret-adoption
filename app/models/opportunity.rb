@@ -1,5 +1,5 @@
 class Opportunity < ApplicationRecord
-    belongs_to :ferret, inverse_of: :opportunity
+    belongs_to :ferret
     belongs_to :owner
 
     validates :title, presence: true

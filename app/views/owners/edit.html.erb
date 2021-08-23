@@ -4,6 +4,6 @@
 
 <br><br>
 
-<%= form_tag ({controller: 'owners', action: 'destroy', method: 'post'}) do %>
-  <input type=submit value='delete'>
+<%= form_tag owner_path(@owner), method: "delete" do %>
+  <%= submit_tag "Delete" %>
 <% end %>

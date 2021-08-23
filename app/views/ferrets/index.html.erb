@@ -8,7 +8,8 @@
 
 <br><br><br>
 
-
+<div>
   <% @ferrets.each do |ferret| %>
     <div><b><%= link_to ferret.name, ferret_path(ferret) %></b> &bull; Needs a home: <em><%= ferret.home %></em></div><br>
   <% end %>
+</div>
