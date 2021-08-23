@@ -1,24 +1,23 @@
 <h1><%= @opportunity.title %></h1>
 <br>
-<p><%= @opportunity.circumstance %></p>
-<br>
-
-<%= @opportunity.ferret.name %>
-
-
+<h2><%= @opportunity.ferret.name %> <i class='fas fa-paw'></i></h2>
 
 <br><br>
 
+<p><%= @opportunity.circumstance %></p>
+
+<br><br>
 
 <% if @opportunity.active %>
   <b>This case is still active.</b>
 <% else %>
   <b>This opportunity is now closed.</b>
 <% end %>
+
 <br><br>
 <br>
-<h5>Shared by <%= @opportunity.owner.first_name %> on <%= @opportunity.updated_at.strftime("%B %d, %Y at %l:%M %P") %>.</h5>
+<h5>Shared by <%= @opportunity.owner.first_name %> on <%= @opportunity.updated_at.strftime("%B %d, %Y") %>.</h5>
 <br><br>
 
 
-<button><%= link_to 'Edit Details', edit_owner_opportunity_path(@owner) %> <i class='fas fa-paw'></i></button>
+<button><%= link_to 'Edit Details', edit_owner_opportunity_path(@owner) %></button>

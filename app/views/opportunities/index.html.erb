@@ -7,6 +7,6 @@
 
 <div>
   <% @opportunities.each do |opportunity| %>
-    <div><h3><%= link_to opportunity.title, opportunity_path(opportunity) %></h3></div><br>
+    <div><h3><%= link_to opportunity.title, opportunity_path(opportunity) %> - for <%= opportunity.ferret.name %></h3></div><br>
   <% end %>
 </div>
