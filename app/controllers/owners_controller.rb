@@ -3,7 +3,7 @@ class OwnersController < ApplicationController
     skip_before_action :require_logged_in, only: [:new, :create]
   
     def index
-      @owners = Owner.all
+      @owners = Owner.all.sort_name  #scope
     end
 
     def show

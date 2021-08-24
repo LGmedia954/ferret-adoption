@@ -13,7 +13,7 @@ class Owner < ApplicationRecord
 
     before_save { self.email = email.downcase }
 
-
+    scope :sort_name, -> { order(first_name: :asc) }
 
     def self.need_fuzzies
       self.where("quantity < 2")
