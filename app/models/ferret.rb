@@ -5,8 +5,9 @@ class Ferret < ApplicationRecord
 
     validates_presence_of :name, :age, :sex, :color, :health, :description
 
-    scope :for_adoption, -> { where(home: 'true') }
-    scope :found_home, -> { where(home: 'false') }
+    scope :for_adoption, -> { where(home: true) }
+    scope :found_home, -> { where(home: false) }
+    scope :by_name, -> { order(name: :asc) }
     
 
 end

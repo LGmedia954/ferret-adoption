@@ -2,7 +2,7 @@ class FerretsController < ApplicationController
     before_action :require_logged_in
 
     def index
-      @ferrets = Ferret.all
+      @ferrets = Ferret.all.by_name  #scope
     end
 
     def show
@@ -26,8 +26,9 @@ class FerretsController < ApplicationController
     end
 
     def happy_at_home
-      @ferrets = Ferret.all.found_home  #scope
-      byebug
+      @ferret = Ferret.found_home
+      #@ferrets = @ferrets.found_home(params[:home]) if params[:home].present?
+      #I want the scope to come through
       render 'found_home'
     end
 
