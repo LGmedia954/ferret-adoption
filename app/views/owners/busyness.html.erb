@@ -1,7 +1,13 @@
 <h1><i class='fas fa-paw' style='font-size:36px'></i> <%= @owner.first_name %> has a Busyness of <%= @owner.quantity %> Ferrets.<i class='fas fa-paw' style='font-size:36px'></i></h1>
 
 <br>
-
+<% if @owner.need_fuzzies %>
+  <b>Blah.</b>
+<% else %>
+  <% if @owner.big_busyness %>
+  <b>Blah. Blah</b>
+  <% end %>
+<% end %>
 <br>
 
 <% @owner.ferrets.each do |ferret| %>

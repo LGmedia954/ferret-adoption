@@ -13,14 +13,5 @@ class Owner < ApplicationRecord
 
     before_save { self.email = email.downcase }
 
-
-
-    def self.need_fuzzies
-      self.where("quantity < 2")
-    end
-
-    def self.big_busyness
-      self.where("quantity >= 4")
-    end
-
+    
 end

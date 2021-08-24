@@ -30,6 +30,14 @@ class OwnersController < ApplicationController
       @ferrets = Ferret.where(:owner_id => current_user.id)
       render 'busyness'
     end
+
+    def need_fuzzies
+      @owner = Owner.where("quantity < 2")
+    end
+
+    def big_busyness
+      @owner = Owner.where("quantity >= 4")
+    end
     
     def edit
       @owner = Owner.find(params[:id])
