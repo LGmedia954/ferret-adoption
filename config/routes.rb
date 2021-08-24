@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/sessions/new', to: 'sessions#new'
  
   post '/sessions/create', to: 'sessions#create', as: 'login'
+
+  get '/auth/facebook/callback', to: 'sessions#create'
   
   get '/sessions/destroy', to: 'sessions#destroy', as: 'logout'
 
