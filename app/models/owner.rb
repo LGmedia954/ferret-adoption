@@ -20,7 +20,7 @@ class Owner < ApplicationRecord
     end
 
     def self.big_busyness
-      self.where("quantity >= 4")
+      self.where("quantity >= 3")
     end
 
 end

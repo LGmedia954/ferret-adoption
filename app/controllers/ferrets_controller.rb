@@ -26,7 +26,7 @@ class FerretsController < ApplicationController
     end
 
     def happy_at_home
-      @ferret = Ferret.all.found_home  #I want the scope to come through
+      @ferret = Ferret.all.found_home  #Need this in view
       render 'status/found_home'
     end
 
