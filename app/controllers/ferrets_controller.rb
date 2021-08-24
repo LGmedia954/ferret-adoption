@@ -26,10 +26,8 @@ class FerretsController < ApplicationController
     end
 
     def happy_at_home
-      @ferret = Ferret.found_home
-      #@ferrets = @ferrets.found_home(params[:home]) if params[:home].present?
-      #I want the scope to come through
-      render 'found_home'
+      @ferret = Ferret.all.found_home  #I want the scope to come through
+      render 'status/found_home'
     end
 
     def edit
