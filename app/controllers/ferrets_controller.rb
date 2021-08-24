@@ -27,6 +27,7 @@ class FerretsController < ApplicationController
 
     def happy_at_home
       @ferrets = Ferret.all.found_home  #scope
+      byebug
       render 'found_home'
     end
 
