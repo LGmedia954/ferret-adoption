@@ -2,7 +2,7 @@ class OpportunitiesController < ApplicationController
     before_action :require_logged_in
     
     def index
-      @opportunities = Opportunity.all
+      @opportunities = Opportunity.all.recent  #scope
     end
 
     def show
@@ -19,7 +19,7 @@ class OpportunitiesController < ApplicationController
       @owner = Owner.find(session[:owner_id])
       @ferrets = Ferret.where(:owner_id => current_user.id)
       @opportunity = @owner.opportunities.build(opportunity_params)
-      #byebug
+      
       if @opportunity.save
         flash[:message] = "Opportunity added. Good luck!"
         redirect_to opportunity_path(@opportunity)

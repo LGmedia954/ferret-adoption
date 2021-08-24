@@ -25,6 +25,11 @@ class FerretsController < ApplicationController
       end
     end
 
+    def happy_at_home
+      @ferrets = Ferret.all.found_home  #scope
+      render 'found_home'
+    end
+
     def edit
       @ferret = Ferret.find(params[:id])
 

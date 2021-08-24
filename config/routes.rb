@@ -35,6 +35,9 @@ Rails.application.routes.draw do
     resources :opportunities
   end
 
-  
+  scope '/status' do
+    get 'found_home', to: 'ferrets#found_home'
+  end
+
 
 end
