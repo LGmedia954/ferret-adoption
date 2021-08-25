@@ -6,10 +6,11 @@ Rails.application.routes.draw do
   get 'owners/new', to: 'owners#new', as: 'signup'
 
   get '/sessions/new', to: 'sessions#new'
- 
+
   post '/sessions/create', to: 'sessions#create', as: 'login'
 
-  get '/auth/facebook/callback', to: 'sessions#create'
+  #get '/auth/facebook/callback' => 'sessions#omniauth'
+  match '/auth/facebook/callback', to: 'sessions#omniauth', via: [:get, :post]
   
   get '/sessions/destroy', to: 'sessions#destroy', as: 'logout'
 

@@ -4,6 +4,21 @@ class SessionsController < ApplicationController
     end
   
     def create
+      owner = Owner.find_by(email: params[:session][:email].downcase)
+
+      if owner && owner.authenticate(params[:session][:password])
+
+        log_in owner
+
+        redirect_to controller: 'welcome', action: 'home'
+
+      else
+        flash.now[:danger] = 'Invalid email/password combination'
+        return redirect_to(controller: 'sessions', action: 'new')
+      end
+    end
+
+    def omniauth
       if auth
         @owner = Owner.find_or_create_by(uid: auth['uid']) do |o|
           o.name = auth['info']['name']
@@ -12,20 +27,8 @@ class SessionsController < ApplicationController
         end
         session[:owner_id] = @owner.id
         redirect_to welcome_home_path
-
       else
-        if owner = Owner.find_by(email: params[:session][:email].downcase)
-
-        if owner && owner.authenticate(params[:session][:password])
-
-          log_in owner
-
-          redirect_to controller: 'welcome', action: 'home'
-
-        else
-          flash.now[:danger] = 'Invalid email/password combination'
-          return redirect_to(controller: 'sessions', action: 'new')
-        end
+        redirect_to '/login'
       end
     end
   
