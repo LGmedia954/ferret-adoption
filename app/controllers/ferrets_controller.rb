@@ -25,9 +25,8 @@ class FerretsController < ApplicationController
       end
     end
 
-    def happy_at_home
-      @ferret = Ferret.all.found_home  #Need this in view
-      render 'status/found_home'
+    def found_home
+      @ferrets = Ferret.all.found_home
     end
 
     def edit

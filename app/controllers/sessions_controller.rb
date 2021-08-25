@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
         redirect_to controller: 'welcome', action: 'home'
       else
         flash[:danger] = 'Please try again.'
-        redirect_to '/'
+        return redirect_to(controller: 'sessions', action: 'new')
       end
   end
 

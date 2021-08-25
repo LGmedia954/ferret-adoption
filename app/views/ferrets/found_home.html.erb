@@ -4,5 +4,9 @@
 <br>
 
 <div>
+
+  <% @ferrets.each do |ferret| %>
+    <div><h3><%= ferret.name %>, the <%= ferret.age %>-year old <%= ferret.color %></h3></div><br>
+  <% end %>
   
 </div>
