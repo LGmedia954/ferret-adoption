@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class SessionsController < ApplicationController
 
     def new
@@ -19,12 +21,12 @@ class SessionsController < ApplicationController
     end
 
   def omniauth
-      @owner = Owner.find_or_create_by(uid: auth[:uid]) do |o|
+      @owner = Owner.find_or_create_by(email: auth[:info][:email]) do |o|
         o.first_name = auth[:info][:name]
-        o.email = auth[:info][:email]
+        o.uid = auth[:info][:uid]
+        o.password = SecureRandom.hex(10)
       end
-      
-      if @owner.valid?
+      if @owner.persisted?
         session[:owner_id] = @owner.id
         redirect_to controller: 'welcome', action: 'home'
       else
@@ -36,7 +38,6 @@ class SessionsController < ApplicationController
   
     def destroy
       session.delete :owner_id
-  
       redirect_to '/'
     end
 
