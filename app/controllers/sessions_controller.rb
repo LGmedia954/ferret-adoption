@@ -18,19 +18,21 @@ class SessionsController < ApplicationController
       end
     end
 
-    def omniauth
-      if auth
-        @owner = Owner.find_or_create_by(uid: auth['uid']) do |o|
-          o.name = auth['info']['name']
-          o.email = auth['info']['email']
-          o.image = auth['info']['image']
-        end
-        session[:owner_id] = @owner.id
-        redirect_to welcome_home_path
-      else
-        redirect_to '/login'
+  def omniauth
+      @owner = Owner.find_or_create_by(uid: auth[:uid]) do |o|
+        o.first_name = auth[:info][:name]
+        o.email = auth[:info][:email]
       end
-    end
+      
+      if @owner.valid?
+        session[:owner_id] = @owner.id
+        redirect_to controller: 'welcome', action: 'home'
+      else
+        flash[:danger] = 'Please try again.'
+        redirect_to '/'
+      end
+  end
+
   
     def destroy
       session.delete :owner_id
