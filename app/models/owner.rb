@@ -2,7 +2,7 @@ class Owner < ApplicationRecord
     has_secure_password
 
     has_many :ferrets, dependent: :destroy
-    has_many :opportunities
+    has_many :opportunities, dependent: :destroy
     has_many :ferret_adoptions, through: :opportunities
     accepts_nested_attributes_for :ferrets, :opportunities
  
