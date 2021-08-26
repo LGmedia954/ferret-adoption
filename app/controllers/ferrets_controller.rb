@@ -26,7 +26,7 @@ class FerretsController < ApplicationController
     end
 
     def found_home
-      @ferrets = Ferret.all.found_home
+      @ferrets = Ferret.all.found_home  #scope
     end
 
     def edit
