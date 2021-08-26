@@ -51,6 +51,17 @@ class OwnersController < ApplicationController
       end
     end
 
+    def destroy
+      @owner = Opportunity.find(params[:id])
+      if !current_user
+        flash[:message] = "You may only delete your own account."
+        redirect_to owners_path
+      else
+        @owner.destroy
+        redirect_to '/'
+      end
+    end
+
     private
 
     def owner_params

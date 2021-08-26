@@ -32,7 +32,7 @@ class FerretsController < ApplicationController
     def edit
       @ferret = Ferret.find(params[:id])
 
-      if !current_user
+      if @ferret.owner != current_user
         flash[:message] = "You may only edit your own ferret details."
         redirect_to ferrets_path
       end
@@ -50,7 +50,7 @@ class FerretsController < ApplicationController
     end
 
     def destroy
-      if !current_user
+      if @ferret.owner != current_user
         flash[:message] = "You may only delete your own ferret listings."
         redirect_to ferrets_path
       else
