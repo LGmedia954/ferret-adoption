@@ -30,6 +30,11 @@ class OwnersController < ApplicationController
       @ferrets = Ferret.where(:owner_id => current_user.id)
       render 'busyness'
     end
+
+    def adoption
+      @owner = Owner.find(params[:id])
+      @opportunity.id = @owner.uid.save
+    end
     
     def edit
       @owner = Owner.find(params[:id])

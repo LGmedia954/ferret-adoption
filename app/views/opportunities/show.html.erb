@@ -5,7 +5,8 @@
 <br><br>
 
 <p><%= @opportunity.circumstance %></p>
-
+<br><br>
+<h5>Shared by <%= @opportunity.owner.first_name %> on <%= @opportunity.updated_at.strftime("%B %d, %Y") %>.</h5>
 <br><br>
 
 <% if @opportunity.active %>
@@ -16,8 +17,11 @@
 
 <br><br>
 <br>
-<h5>Shared by <%= @opportunity.owner.first_name %> on <%= @opportunity.updated_at.strftime("%B %d, %Y") %>.</h5>
+<button><%= link_to "Adoption Request", opportunities_path(owner_id: @owner.id), method: :post %> <i class='fas fa-heart' style='color:crimson'></i></button>
+
 <br><br>
+<br>
+
 
 
 <button><%= link_to 'Edit Details', edit_owner_opportunity_path(@owner) %></button>
