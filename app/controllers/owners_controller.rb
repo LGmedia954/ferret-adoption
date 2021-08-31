@@ -27,13 +27,14 @@ class OwnersController < ApplicationController
 
     def busyness
       @owner = Owner.find(session[:owner_id])
-      @ferrets = Ferret.where(:owner_id => current_user.id)
+      #@ferrets = Ferret.where(:owner_id => current_user.id)
+      current_user.ferrets
       render 'busyness'
     end
 
-    def adoption
+    def adoption_request
       @owner = Owner.find(params[:id])
-      @opportunity.id = @owner.uid.save
+      @opportunity.id = @owner.req_id.save
     end
     
     def edit
@@ -70,7 +71,7 @@ class OwnersController < ApplicationController
     private
 
     def owner_params
-      params.require(:owner).permit(:first_name, :last_name, :email, :phone, :zipcode, :quantity, :password, :password_confirmation)
+      params.require(:owner).permit(:first_name, :last_name, :email, :phone, :zipcode, :quantity, :req_id, :password, :password_confirmation)
     end
 
 end
