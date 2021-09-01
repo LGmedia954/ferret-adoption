@@ -33,8 +33,13 @@ class OwnersController < ApplicationController
     end
 
     def adoption_request
-      @owner = Owner.find(params[:id])
-      @opportunity.id = @owner.req_id.save
+      @owner = Owner.find(session[:owner_id])
+      @opportunity = Opportunity.find(params[:id])
+      current_user.req_id = [] << @opportunity.id
+        if current_user.req_id.persisted?
+          flash[:message] = "Adoption request submitted."
+          redirect_to 'static/questions'
+        end
     end
     
     def edit

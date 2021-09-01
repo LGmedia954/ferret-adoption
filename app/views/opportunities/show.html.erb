@@ -17,11 +17,10 @@
 
 <br><br>
 <br>
-<button><%= link_to "Adoption Request", opportunities_path(opportunity.id: @owner.req_id), method: :post %> <i class='fas fa-heart' style='color:crimson'></i></button>
+
+<button><%= link_to "Adoption Request", adoption_request_path(@owner, @opportunity), method: :post %> <i class='fas fa-heart' style='color:crimson'></i></button>
 
 <br><br>
 <br>
-
-
 
 <button><%= link_to 'Edit Details', edit_owner_opportunity_path(@owner) %></button>

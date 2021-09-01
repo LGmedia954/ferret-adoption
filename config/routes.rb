@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   post '/sessions/create', to: 'sessions#create', as: 'login'
 
   #get '/auth/:provider/callback', to: 'sessions#omniauth'
-  match '/auth/:provider/callback', to: 'sessions#omniauth', via: [:get, :post]
+  match '/auth/:provider/callback', to: 'sessions#omniauth', via: [:get, :post, :patch]
   
   get '/sessions/destroy', to: 'sessions#destroy', as: 'logout'
 
@@ -28,6 +28,8 @@ Rails.application.routes.draw do
 
   resources :opportunities, only: [:index, :show]
 
+
+
   resources :owners do
     resources :ferrets, except: [:index]
   end
@@ -38,9 +40,12 @@ Rails.application.routes.draw do
     resources :opportunities
   end
 
+  match '/owners/:owner_id/opportunities/:id', to: 'owners#adoption_request', as: 'adoption_request', via: [:get, :post]
+
   scope '/status' do
     get 'found_home', to: 'ferrets#found_home'
   end
 
+  
 
 end
