@@ -18,7 +18,7 @@
 <br><br>
 <br>
 
-<button><%= link_to "Adoption Request", adoption_request_path(@owner, @opportunity), method: :post %> <i class='fas fa-heart' style='color:crimson'></i></button>
+<button><%= link_to "Adoption Request", adoption_request_path(@owner, req_id: @opportunity.id), method: :post %> <i class='fas fa-heart' style='color:crimson'></i></button>
 
 <br><br>
 <br>

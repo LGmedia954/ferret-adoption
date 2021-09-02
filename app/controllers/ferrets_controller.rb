@@ -63,7 +63,7 @@ class FerretsController < ApplicationController
     private
 
 	def ferret_params
-	  params.require(:ferret).permit(:name, :age, :sex, :color, :health, :description, :home, :owner_id, :opportunity_id)
+	  params.require(:ferret).permit(:name, :age, :sex, :color, :health, :description, :home, :owner_id, :opportunity_id, :adopter_id)
 	end
 
 
