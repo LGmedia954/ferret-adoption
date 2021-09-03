@@ -35,7 +35,7 @@ class OpportunitiesController < ApplicationController
       @opportunity = Opportunity.find(params[:id])
       @opportunity.adopter_id = [] << current_user.id
       current_user.req_id = [] << @opportunity.id
-      #byebug
+      
       flash[:message] = "Adoption request submitted."
       redirect_to questions_path
     end
