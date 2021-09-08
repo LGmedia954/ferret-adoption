@@ -11,7 +11,3 @@ class Opportunity < ApplicationRecord
 
 
 end
-
-
-# Added a separate AdoptionRequest table
-# and reworking model relationships.

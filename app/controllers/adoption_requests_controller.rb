@@ -6,15 +6,15 @@ class AdoptionRequestsController < ApplicationController
   end
 
   def create
-    if @opportunity.ferrets != @owner.ferrets
+    if @opportunity.ferrets != current_user.ferrets
       @adoption_request = @opportunity.adoption_requests.new(adopter: current_user)
-    
-    if @adoption_request.save
-      flash[:message] = "Adoption request submitted."
-      redirect_to questions_path
-      # need to notify owner
-    else
-      redirect_to @opportunity
+
+      if @adoption_request.save
+        flash[:message] = "Adoption request submitted."
+        redirect_to questions_path
+      else
+        redirect_to opportunity_path(@opportunity)
+      end
     end
   end
 

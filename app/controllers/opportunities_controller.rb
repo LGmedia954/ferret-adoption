@@ -11,14 +11,12 @@ class OpportunitiesController < ApplicationController
 
   def new
     @owner = Owner.find(session[:owner_id])
-    #@ferrets = Ferret.where(:owner_id => current_user.id)
     current_user.ferrets
     @opportunity = current_user.opportunities.new
   end
 
   def create
     @owner = Owner.find(session[:owner_id])
-    #@ferrets = Ferret.where(:owner_id => current_user.id)
     current_user.ferrets
     @opportunity = @owner.opportunities.build(opportunity_params)
 
@@ -33,7 +31,7 @@ class OpportunitiesController < ApplicationController
     def adoption_request
       @owner = Owner.find(session[:owner_id])
       @opportunity = Opportunity.find(params[:id])
-      if @owner != @ferret.owner
+      if current_user != Opportunity.ferret.owner
         @opportunity.req_id = current_user.id
         @opportunity.save
 
