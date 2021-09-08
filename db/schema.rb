@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_24_212801) do
+ActiveRecord::Schema.define(version: 2021_09_08_032358) do
+
+  create_table "adoption_requests", force: :cascade do |t|
+    t.integer "adopter_id"
+    t.integer "opportunity_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "ferrets", force: :cascade do |t|
     t.string "name"
