@@ -32,11 +32,11 @@ class OpportunitiesController < ApplicationController
       @owner = Owner.find(session[:owner_id])
       @opportunity = Opportunity.find(params[:id])
       if current_user != Opportunity.ferret.owner
-        @opportunity.adopter_id = current_user.id
-        @opportunity.save
-
-      flash[:message] = "Adoption request submitted."
-      redirect_to questions_path
+        @adoption_request.create
+      else 
+        flash[:message] = "This is your ferret!"
+        redirect_to opportunities_path
+      end
     end
 
   def edit
