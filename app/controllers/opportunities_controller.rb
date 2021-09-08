@@ -28,17 +28,6 @@ class OpportunitiesController < ApplicationController
     end
   end
 
-    def adoption_request
-      @owner = Owner.find(session[:owner_id])
-      @opportunity = Opportunity.find(params[:id])
-      if current_user != Opportunity.ferret.owner
-        @adoption_request.create
-      else 
-        flash[:message] = "This is your ferret!"
-        redirect_to opportunities_path
-      end
-    end
-
   def edit
     @opportunity = Opportunity.find(params[:id])
 
@@ -74,7 +63,7 @@ class OpportunitiesController < ApplicationController
     private
 
   def opportunity_params
-		params.require(:opportunity).permit(:title, :circumstance, :active, :owner_id, :ferret_id, :ferrets_attributes => [:name], :owners_attributes => [:name])
+		params.require(:opportunity).permit(:title, :circumstance, :active, :owner_id, :ferret_id, :ferrets_attributes => [:name])
 	end
 
     

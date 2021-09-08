@@ -4,16 +4,16 @@
 
 <br><br>
 
-<p><%= @opportunity.circumstance %></p>
+<p><%= @opportunity.circumstance %> Case ID# <%= @opportunity.id %></p>
 <br><br>
 
 <h5>Shared by <%= @opportunity.owner.first_name %> on <%= @opportunity.updated_at.strftime("%B %d, %Y") %>.</h5>
 
-<br><br><br>
+<br><br>
   
 <%= button_to "Create an Adoption Request", opportunity_adoption_requests_path(@opportunity), method: :post %></b>
 
-<br><br><br>
+<br><br><br><br>
 
 <% if @opportunity.active %>
   <b>This case is still active.</b>
