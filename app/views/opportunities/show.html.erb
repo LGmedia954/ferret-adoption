@@ -14,13 +14,14 @@
 <% else %>
   <b>This opportunity is now closed.</b>
 <% end %>
-
-<br><br>
-<br>
-
-<button><%= link_to 'Adoption Request', adoption_request_path, method: :post %> <i class='fas fa-heart' style='color:crimson'></i></button>
-
-<br><br>
-<br>
-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <button><%= link_to 'Edit Details', edit_owner_opportunity_path(@owner) %></button>
+
+<br><br>
+<br>
+
+<%= render 'requestor' %>
+
+<br><br>
+<br>
+

@@ -33,10 +33,9 @@ class OpportunitiesController < ApplicationController
     def adoption_request
       @owner = Owner.find(session[:owner_id])
       @opportunity = Opportunity.find(params[:id])
-      @opportunity.adopter_id = current_user.id
-      current_user.req_id = @opportunity.id
-      @opportunity.save
-      @owner.save
+      if @owner != @ferret.owner
+        @opportunity.req_id = current_user.id
+        @opportunity.save
 
       flash[:message] = "Adoption request submitted."
       redirect_to questions_path
@@ -77,7 +76,7 @@ class OpportunitiesController < ApplicationController
     private
 
   def opportunity_params
-		params.require(:opportunity).permit(:title, :circumstance, :active, :owner_id, :ferret_id, :adopter_id, :ferrets_attributes => [:name], :owners_attributes => [:req_id])
+		params.require(:opportunity).permit(:title, :circumstance, :active, :owner_id, :ferret_id, :ferrets_attributes => [:name], :owners_attributes => [:name])
 	end
 
     

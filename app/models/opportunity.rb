@@ -10,3 +10,7 @@ class Opportunity < ApplicationRecord
 
 
 end
+
+# I plan to revisit this project on a new branch, 
+# adding a separate AdoptionRequest table
+# and reworking model relationships.
