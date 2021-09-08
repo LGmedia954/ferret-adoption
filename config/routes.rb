@@ -39,9 +39,11 @@ Rails.application.routes.draw do
     resources :opportunities
   end
 
+  resources :opportunities do
+    resources :adoption_requests, only: [:create, :index]
+  end
 
-
-  match '/opportunities/:id/adoption_request', to: 'opportunities#adoption_request', as: 'adoption_request', via: [:get, :post, :patch]
+  #match '/opportunities/:id/adoption_request', to: 'opportunities#adoption_request', as: 'adoption_request', via: [:get, :post, :patch]
 
   scope '/status' do
     get 'found_home', to: 'ferrets#found_home'
