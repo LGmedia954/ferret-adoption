@@ -1,6 +1,7 @@
 class Opportunity < ApplicationRecord
     belongs_to :ferret
     belongs_to :owner
+    has_many :adoption_requests
 
     validates :title, presence: true
     validates :circumstance, length: { maximum: 500 }
@@ -11,6 +12,6 @@ class Opportunity < ApplicationRecord
 
 end
 
-# I plan to revisit this project on a new branch, 
-# adding a separate AdoptionRequest table
+
+# Added a separate AdoptionRequest table
 # and reworking model relationships.
