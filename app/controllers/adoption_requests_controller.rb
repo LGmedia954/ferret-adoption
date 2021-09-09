@@ -2,7 +2,11 @@ class AdoptionRequestsController < ApplicationController
     before_action :set_opportunity
 
   def index
-    @adoption_requests = @opportunity.adoption_requests
+    if @opportunity.owner == current_user
+      @adoption_requests = @opportunity.adoption_requests
+    else
+      redirect_to opportunities_path
+    end
   end
 
   def create
