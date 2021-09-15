@@ -17,8 +17,12 @@ class OpportunitiesController < ApplicationController
 
   def create
     @owner = Owner.find(session[:owner_id])
-    current_user.ferrets
-    @opportunity = @owner.opportunities.build(opportunity_params)
+    if !current_user.ferrets
+      flash[:message] = "That is someone else's ferret!"
+    else
+      @owner = Owner.find(session[:owner_id])
+      current_user.ferrets
+      @opportunity = @owner.opportunities.build(opportunity_params)
 
     if @opportunity.save
       flash[:message] = "Opportunity added. Good luck!"
@@ -26,6 +30,7 @@ class OpportunitiesController < ApplicationController
     else
       render 'new'
     end
+   end
   end
 
   def edit
