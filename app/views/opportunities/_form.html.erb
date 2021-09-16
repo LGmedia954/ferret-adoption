@@ -10,7 +10,7 @@
   <%= f.text_area :circumstance, required: true %><br>
   <br>
   <b><label>Ferret(s):</label></b><br>
-  <%= f.collection_select(:ferret_id, Ferret.order(:name), :id, :name, prompt: true) %>
+  <%= f.collection_select(:ferret_id, @owner.ferrets, :id, :name) %>
   <br><br>
   <b><label>Active case?</label></b>&nbsp;&nbsp;&nbsp;<%= f.check_box :active, {}, "true", "false" %><br>
   <h5>All cases are marked as active until you deactivate them.</h5>
