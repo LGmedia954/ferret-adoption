@@ -28,6 +28,11 @@ class OpportunitiesController < ApplicationController
     end
   end
 
+  def my_opportunities
+    @opportunities = current_user.opportunities
+    render '/opportunities/my_opportunities'
+  end
+
   def edit
     @opportunity = Opportunity.find(params[:id])
 
