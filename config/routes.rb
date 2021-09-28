@@ -39,7 +39,7 @@ Rails.application.routes.draw do
     resources :opportunities
   end
 
-  get '/owners/:owner_id/my_opportunities', to: 'opportunities#my_opportunities'
+  get '/owners/:owner_id/my_opportunities', to: 'opportunities#my_opportunities', as: 'my_opportunities'
 
   resources :opportunities do
     resources :adoption_requests, only: [:create, :index]

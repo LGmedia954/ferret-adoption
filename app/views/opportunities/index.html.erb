@@ -1,9 +1,11 @@
 <h1>Opportunities</h1>
 <br>
 
-<button><%= link_to 'Add Opportunity', new_owner_opportunity_path(@owner) %> <i class='fas fa-heart' style='color:crimson'></i></button>
+<button><%= link_to 'Add Opportunity', new_owner_opportunity_path(@owner) %> <i class='fas fa-paw'></i></button>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<button><%= link_to 'Found a Home', found_home_path(@ferret) %> <i class='fas fa-heart' style='color:crimson'></i></button>
+
+<button><%= link_to 'My Opportunities', my_opportunities_path(@owner) %> <i class='fas fa-paw'></i></button>
+
 <br><br>
 <br>
 
@@ -12,3 +14,7 @@
     <div><h3><%= link_to opportunity.title, opportunity_path(opportunity) %> - for <%= opportunity.ferret.name %></h3></div><br>
   <% end %>
 </div>
+
+<br>
+
+<button><%= link_to 'Found a Home', found_home_path(@ferret) %> <i class='fas fa-heart' style='color:crimson'></i></button>
