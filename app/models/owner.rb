@@ -1,7 +1,6 @@
 class Owner < ApplicationRecord
     has_secure_password
 
-    has_many :dogs, dependent: :destroy
     has_many :ferrets, dependent: :destroy
     has_many :opportunities, dependent: :destroy
     has_many :adoption_requests_as_adopter, foreign_key: :adopter_id, class_name: 'AdoptionRequest'
